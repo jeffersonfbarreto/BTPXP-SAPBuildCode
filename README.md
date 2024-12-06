@@ -52,7 +52,7 @@ Stay in touch with the community by choosing your favourite channel.
 **UI5**:
 * Landing page: [OpenUI5 Website](https://openui5.org/)
 * Podcasts series: [UI5 Newscast](https://podcast.opensap.info/ui5-newscast/)
-* Blog posts: [UI5ers Buzz](https://blogs.sap.com/tag/ui5ers-buzz/)
+* Blog posts: [SAPUI5](https://community.sap.com/t5/c-khhcw49343/SAPUI5/pd-p/500983881501772639608291559920477)
 * X / Twitter: [@openui5](https://twitter.com/openui5)
 * Slack: [Get Access to OpenUI5 Slack Workspace](https://ui5-slack-invite.cfapps.eu10.hana.ondemand.com/)
 

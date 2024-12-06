@@ -1,9 +1,9 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2023-AD265)](https://api.reuse.software/info/github.com/SAP-samples/teched2023-AD265)
 
-# Bringing UI to the Next Level: Develop SAPUI5 with SAP Build Code
+# Levando a UI para o próximo nível: Desenvolva o SAPUI5 com o SAP Build Code
 
 ## SAP Build Code
-Last year, SAP launched SAP Build to empower business experts to construct applications, implement automations and compose business sites. This year, the Build family is being expanded to offer a powerful shortcut for cloud application development with the introduction of **SAP Build Code**.
+No ano passado, a SAP lançou o SAP Build para capacitar especialistas em negócios a construir aplicativos, implementar automações e compor sites de negócios. Este ano, a família Build está sendo expandida para oferecer um atalho poderoso para o desenvolvimento de aplicativos em nuvem com a introdução do **SAP Build Code**.
 
 ![](images/img-build-code-architecture.png)
 

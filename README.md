@@ -3,7 +3,7 @@
 # Levando a UI para o próximo nível: Desenvolva o SAPUI5 com o SAP Build Code
 
 ## SAP Build Code
-No ano passado, a SAP lançou o SAP Build para capacitar especialistas em negócios a construir aplicativos, implementar automações e compor sites de negócios. Este ano, a família Build está sendo expandida para oferecer um atalho poderoso para o desenvolvimento de aplicativos em nuvem com a introdução do **SAP Build Code**.
+A SAP lançou o SAP Build para capacitar especialistas em negócios a construir aplicativos, implementar automações e compor sites de negócios. Este ano, a família Build está sendo expandida para oferecer um atalho poderoso para o desenvolvimento de aplicativos em nuvem com a introdução do **SAP Build Code**.
 
 ![](images/img-build-code-architecture.png)
 

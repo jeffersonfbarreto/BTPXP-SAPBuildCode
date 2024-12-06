@@ -1,8 +1,8 @@
-# Exercise 0 - Getting Started
+# Exercício 0 - Introdução
 
-In this exercise, you will be guided on how to access your SAP Business Application Studio account, set up a development space, and gain a quick introduction to its functionalities.
+Neste exercício, você será orientado sobre como acessar sua conta do SAP Business Application Studio, configurar um espaço de desenvolvimento e obter uma rápida introdução às suas funcionalidades.
 
-## Accessing the SAP Build Lobby
+## Acessando o SAP Build Lobby
 
 By the end of these steps, you will know how to navigate from the SAP Build Lobby to the SAP Business Application Studio and set it up for your development needs.
 

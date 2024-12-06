@@ -7,30 +7,30 @@ No ano passado, a SAP lançou o SAP Build para capacitar especialistas em negóc
 
 ![](images/img-build-code-architecture.png)
 
-**SAP Build Code** unifies essential application development tools such as SAP Business Application Studio, SAP Cloud Application Programming Model (CAP), SAPUI5, SAP Mobile Services, and SAP Document Management Services. It is powered by the generative AI copilot, Joule, and enables interoperability with ABAP Cloud. Additionally, it facilitates seamless collaboration with SAP Build's low-code solutions and provides robust governance and lifecycle management features.
+O **SAP Build Code** unifica ferramentas essenciais de desenvolvimento de aplicativos, como SAP Business Application Studio (BAS), SAP Cloud Application Programming Model (CAP), SAPUI5, SAP Mobile Services e SAP Document Management Services (DMS). Ele é alimentado pelo copiloto de IA generativa, Joule, e permite a interoperabilidade com o ABAP Cloud. Além disso, facilita a colaboração perfeita com as soluções low-code do SAP Build e fornece recursos robustos de governança e gerenciamento do ciclo de vida.
 
 ![](images/img-build-code-benefits.png)
 
-This hands-on exercise will assist you in learning how to **build SAPUI5 applications using SAP Build Code**.
+Este exercício prático ajudará você a aprender como **criar aplicativos SAPUI5 usando o SAP Build Code**.
 
-## Description
+## Descrição
 
-Learn how to develop an SAPUI5 freestyle application using SAP Build Code, TypeScript, and the latest tools and best practices from SAP. In general, when using SAPUI5, you can decide whether you would like to implement applications using TypeScript or JavaScript. This tutorial, however, is exclusively using TypeScript. Don't be afraid, the difference is very small and not hard to understand.
+Saiba como desenvolver um aplicativo de estilo livre SAPUI5 usando o SAP Build Code, o TypeScript e as ferramentas e práticas recomendadas mais recentes da SAP. Em geral, ao usar o SAPUI5, você pode decidir se deseja implementar aplicativos usando TypeScript ou JavaScript. Este tutorial, no entanto, está usando exclusivamente o TypeScript. Não tenha medo, a diferença é muito pequena e não é difícil de entender.
 
-## Exercises
+## Exercícios
 
-Completing the following exercises will guide you through developing web applications using the SAPUI5 framework and TypeScript.
+A conclusão dos exercícios a seguir orientará você no desenvolvimento de aplicativos da Web usando o framework SAPUI5 e o TypeScript.
 
-[Exercise 0 - Getting Started](exercises/ex0/)<br>
-[Exercise 1 - Project Setup Using Business Application Studio](exercises/ex1/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex1)*)<br>
-[Exercise 2 - Add First Content](exercises/ex2/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex2)*)<br>
-[Exercise 3 - Show Sensor Content](exercises/ex3/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex3)*)<br>
-[Exercise 4 - Introduce Localization](exercises/ex4/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex4)*)<br>
-[Exercise 5 - Improve Visualization](exercises/ex5/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex5)*)<br>
-[Exercise 6 - Filtering With the IconTabBar](exercises/ex6/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex6)*)<br>
-[Exercise 7 - Fragment Containing a Dialog](exercises/ex7/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex7)*)<br>
-[Exercise 8 - Second View with Navigation](exercises/ex8/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex8)*)<br>
-[Exercise 9 - Card with Sensor Details](exercises/ex9/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex9)*)<br>
+[Exercício 0 - Introdução](exercises/ex0/)<br>
+[Exercício 1 - Project Setup Using Business Application Studio](exercises/ex1/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex1)*)<br>
+[Exercício 2 - Add First Content](exercises/ex2/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex2)*)<br>
+[Exercício 3 - Show Sensor Content](exercises/ex3/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex3)*)<br>
+[Exercício 4 - Introduce Localization](exercises/ex4/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex4)*)<br>
+[Exercício 5 - Improve Visualization](exercises/ex5/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex5)*)<br>
+[Exercício 6 - Filtering With the IconTabBar](exercises/ex6/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex6)*)<br>
+[Exercício 7 - Fragment Containing a Dialog](exercises/ex7/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex7)*)<br>
+[Exercício 8 - Second View with Navigation](exercises/ex8/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex8)*)<br>
+[Exercício 9 - Card with Sensor Details](exercises/ex9/) (*[browse sources](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex9)*)<br>
 <!-- [Exercise 10  - Deployment to SAP BTP - Cloud Foundry runtime](exercises/ex10/) -->
 
 You can not only access the resulting code after each exercise by following the links above, but also import it to SAP Business Application Studio. Instructions how to do this can be [found here](https://github.com/SAP-samples/teched2023-AD265/tree/code).

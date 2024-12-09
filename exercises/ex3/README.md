@@ -1,39 +1,39 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex3)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex3/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
-# Exercise 3 - Show Sensor Content
+# Exercício 3 - Mostrar conteúdo do sensor
 
-In this exercise you'll add a local data source to the application and display the data on the further enhanced UI5 view.
+Neste exercício, você adicionará uma fonte de dados local ao aplicativo e exibirá os dados na visualização aprimorada da UI5.
 
-## Exercise 3.1 - Import Sensor Data
+## Exercício 3.1 - Importar dados do sensor
 
-To simulate a server providing sensor data, you'll now add some local sensor data to your application.
+Para simular um servidor fornecendo dados do sensor, você agora adicionará alguns dados do sensor local ao seu aplicativo.
 
-1. Right-click on the `sensormanager/webapp/` folder and select *New Folder*.
+1. Clique com o botão direito do mouse na pasta `sensormanager/webapp/` e selecione *New Folder*.
 
-![](images/03_01_0010.png)
+![](images/BTP_03_0010.png)
 
-2. Enter *localData* as the folder name and confirm by pressing *Enter*.
+2. Insira *localData* como o nome da pasta e confirme pressionando *Enter*.
 
-3. Right-click on the `localData` folder and select `New File`.
+3. Clique com o botão direito na pasta `localData` e selecione `New File`.
 
-![](images/03_01_0020.png)
+![](images/BTP_03_0020.png)
 
-4. Enter `sensors.json` as file name and confirm by pressing *Enter*.
+4. Digite `sensors.json` como nome do arquivo e confirme pressionando *Enter*.
 
-![](images/03_01_0030.png)
+![](images/BTP_03_0030.png)
 
-5. Copy and paste the content of [sensors.json](data/sensors.json) into the newly created file. Hint: when you follow the link, there is a "Copy raw file" button (looks like overlapping squares) in the header right above the file content.
+5. Copie e cole o conteúdo de [sensors.json](data/sensors.json) no arquivo recém-criado. Dica: quando você segue o link, há um botão "Copiar arquivo raw" (parece quadrados sobrepostos) no cabeçalho logo acima do conteúdo do arquivo.
 
-![](images/03_01_0040.png)
+![](images/BTP_03_0040.png)
 
-## Exercise 3.2 - Configure a Data Source
+## Exercício 3.2 - Configurar uma fonte de dados
 
-After adding the sensor data to your application, you'll need to configure the data source which provides the sensor data.
+Após adicionar os dados do sensor ao seu aplicativo, você precisará configurar a fonte de dados que fornece os dados do sensor.
 
-1. Click on `manifest.json` link in the *Application Info* page. If you had closed the *Application Info* page, you can reopen it by using command `Fiori: Open Application Info` from the command palette. You can also find the `manifest.json` file located under `sensormanager/webapp`.
+1. Clique no link `manifest.json` na página *Informações do aplicativo*. Se você fechou a página *Informações do aplicativo*, você pode reabri-la usando o comando `Fiori: Abrir informações do aplicativo` na paleta de comandos. Você também pode encontrar o arquivo `manifest.json` localizado em `sensormanager/webapp`.
 
-2. Go to the section `sap.app`. Here, at the end of the list, after "sourceTemplate", add the `dataSources` section as follows:
-
+2. Vá para a seção `sap.app`. Aqui, no final da lista, após "sourceTemplate", adicione a seção `dataSources` da seguinte forma:
+   
 ###### sensormanager/webapp/manifest.json
 
 ```js
@@ -48,12 +48,12 @@ After adding the sensor data to your application, you'll need to configure the d
     }
 ```
 
->💡 Again, do not forget adding the comma after the previous block "sourceTemplate".
+>💡 Novamente, não se esqueça de adicionar a vírgula após o bloco anterior "sourceTemplate".
 
-> 🧑‍🎓 The `sensorSource`, points to the sensor data file which you have just added to the `localData` folder. In real-life applications, you often configure a URI of an actual service here and its type ("OData") and protocol version.
+> 🧑‍🎓 O `sensorSource`, aponta para o arquivo de dados do sensor que você acabou de adicionar à pasta `localData`. Em aplicações da vida real, você frequentemente configura um URI de um serviço real aqui e seu tipo ("OData") e versão do protocolo.
 
-3. Go to the section `sap.ui5`. (Not `sap.ui`!) Here, add a "sensorModel" section as follows:
-
+3. Vá para a seção `sap.ui5`. (Não `sap.ui`!) Aqui, adicione uma seção "sensorModel" como segue:
+   
 ###### sensormanager/webapp/manifest.json
 
 ```js
@@ -73,9 +73,9 @@ After adding the sensor data to your application, you'll need to configure the d
   },
 ```
 
-> 🧑‍🎓 This adds the `JSONModel` with name `sensorModel`, which will provide data access in the application and refers to the data source that has been created above.
+> 🧑‍🎓 Isso adiciona o `JSONModel` com o nome `sensorModel`, que fornecerá acesso aos dados no aplicativo e se refere à fonte de dados que foi criada acima.
 
-4. Since this workshop does not use flexibility services, disable them by changing the first entry in the `sap.ui5` section as follows:
+4. Como este workshop não usa serviços de flexibilidade, desabilite-os alterando a primeira entrada na seção `sap.ui5` da seguinte forma:
 
 ```js
     "sap.ui5": {
@@ -83,14 +83,14 @@ After adding the sensor data to your application, you'll need to configure the d
     ...
 ```
 
-## Exercise 3.3 - Add a GridList
+## Exercício 3.3 - Adicionar uma GridList
 
-After configuring the data service, it's now time to enrich your `Sensors.view.xml` with some fancy UI5 controls!
+Após configurar o serviço de dados, agora é hora de enriquecer seu `Sensors.view.xml` com alguns controles UI5 sofisticados!
 
-1. Open the `Sensors.view.xml` located under `sensormanager/webapp/view`.
+1. Abra o `Sensors.view.xml` localizado em `sensormanager/webapp/view`.
 
-2. Add `sap.f` and `sap.ui.layout.cssgrid` to the xml namespace declarations to make sure that the required resources are available in your view. Re-arrange the content a bit for a better overview, so it will look like this:
-
+2. Adicione `sap.f` e `sap.ui.layout.cssgrid` às declarações de namespace xml para garantir que os recursos necessários estejam disponíveis em sua visualização. Reorganize o conteúdo um pouco para uma melhor visão geral, para que fique assim:
+   
 ###### sensormanager/webapp/view/Sensors.view.xml
 
 ```xml
@@ -103,7 +103,7 @@ After configuring the data service, it's now time to enrich your `Sensors.view.x
     displayBlock="true">
 ```
 
-3. Add `sap.f.GridList` to the `content` aggregation of the IconTabBar (between `<content>` and `</content>`).
+3. Adicione `sap.f.GridList` à agregação `content` do IconTabBar (entre `<content>` e `</content>`).
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 
@@ -118,20 +118,20 @@ After configuring the data service, it's now time to enrich your `Sensors.view.x
                     </f:GridList>
 ```
 
-> 🧑‍🎓 As seen before, an *aggregation* is the parent-child relationship within the tree structure of UI elements. The child end of the relation may have cardinality 0..1 or 0..*. The elements' API offers convenient and consistent methods to deal with aggregations (e.g. to get, set, or remove child elements). Examples are table rows and cells, or the content of a table cell.
-> The `noData` aggregation content - an illustrated message - is displayed when no data is available to be displayed in items.
+> 🧑‍🎓 Como visto antes, uma *agregação* é o relacionamento pai-filho dentro da estrutura de árvore dos elementos da IU. A extremidade filho da relação pode ter cardinalidade 0..1 ou 0..*. A API dos elementos oferece métodos convenientes e consistentes para lidar com agregações (por exemplo, para obter, definir ou remover elementos filhos). Exemplos são linhas e células de tabela ou o conteúdo de uma célula de tabela.
+> O conteúdo da agregação `noData` - uma mensagem ilustrada - é exibido quando nenhum dado está disponível para ser exibido em itens.
 
-4. Switch to the browser tab with the preview and see the updated UI5 application (refresh/restart if needed).
+4. Mude para a guia do navegador com a visualização e veja o aplicativo UI5 atualizado (atualize/reinicie se necessário).
 
-![](images/03_03_0010.png)
+![](images/BTP_03_0050.png)
 
-## Exercise 3.4 - Add Data Binding
+## Exercício 3.4 - Adicionar Data Binding
 
-After adding the `sap.f.GridList` control, you'll need to connect the control to the sensor data. For this, UI5 provides a mechanism called *Data Binding*.
+Após adicionar o controle `sap.f.GridList`, você precisará conectar o controle aos dados do sensor. Para isso, a UI5 fornece um mecanismo chamado *Data Binding*.
 
-1. In case you closed it, open the `Sensors.view.xml` located under `sensormanager/webapp/view`.
+1. Caso você tenha fechado, abra o `Sensors.view.xml` localizado em `sensormanager/webapp/view`.
 
-2. Bind the `items` aggregation of the `sap.f.GridList` to the path `sensorModel>/sensors`. Here, `sensorModel` is  the name of your recently defined data model, and `/sensors` points to a property inside it. As this property holds an array with several entries, you'd probably like to define sorting and grouping as well. In the `sorter` you can configure this by using the properties available. To do all of this, change the `<f:GridList ...>` opening tag as follows:
+2. Vincule a agregação `items` do `sap.f.GridList` ao caminho `sensorModel>/sensors`. Aqui, `sensorModel` é o nome do seu modelo de dados definido recentemente, e `/sensors` aponta para uma propriedade dentro dele. Como essa propriedade contém uma matriz com várias entradas, você provavelmente gostaria de definir classificação e agrupamento também. No `sorter`, você pode configurar isso usando as propriedades disponíveis. Para fazer tudo isso, altere a tag de abertura `<f:GridList ...>` da seguinte forma:
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 
@@ -142,7 +142,7 @@ After adding the `sap.f.GridList` control, you'll need to connect the control to
                         noDataText="No sensors">
 ```
 
-3. The list items are defined *once* as a template, which is then automatically repeated multiple times by the UI5 data binding to represent each entry of the sensors array. Each list item will automatically receive the data of one array entry from the json file. We also add some location details to our `sap.f.GridListItem`. Here, `location` references the location property of each of the displayed sensor items. Replace the comment `<!-- item template will be added here!>` with the following item template:
+3. Os itens da lista são definidos *uma vez* como um modelo, que é então repetido automaticamente várias vezes pela vinculação de dados UI5 para representar cada entrada do array de sensores. Cada item da lista receberá automaticamente os dados de uma entrada do array do arquivo json. Também adicionamos alguns detalhes de localização ao nosso `sap.f.GridListItem`. Aqui, `location` faz referência à propriedade de localização de cada um dos itens do sensor exibidos. Substitua o comentário `<!-- item template will be added here!>` pelo seguinte modelo de item:
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 
@@ -152,13 +152,13 @@ After adding the `sap.f.GridList` control, you'll need to connect the control to
                             </f:GridListItem>
 ```
 
-4. Let's see if our UI5 application displays the correct sensor data. Switch to the browser tab with the opened application preview (reload the page or re-launch the application if needed).
+4. Vamos ver se nosso aplicativo UI5 exibe os dados corretos do sensor. Mude para a aba do navegador com a pré-visualização do aplicativo aberta (recarregue a página ou reinicie o aplicativo, se necessário).
 
-![](images/03_04_0010.png)
+![](images/BTP_03_0060.png)
 
-## Summary
-Great job! You've successfully added local data to your application, imported the sensor data, configured a data source, and displayed the data using UI5 controls. This showed you how UI5's data binding can be used to populate the user interface. Your application now has a richer interface and is ready to show sensor data. Keep up the great work as you move on to [Exercise 4 - Introduce Localization](../ex4/README.md).
+## Resumo
+Ótimo trabalho! Você adicionou com sucesso dados locais ao seu aplicativo, importou os dados do sensor, configurou uma fonte de dados e exibiu os dados usando controles UI5. Isso mostrou como a vinculação de dados do UI5 pode ser usada para preencher a interface do usuário. Seu aplicativo agora tem uma interface mais rica e está pronto para mostrar dados do sensor. Continue com o ótimo trabalho ao passar para [Exercício 4 - Introdução à localização](../ex4/README.md).
 
-## Further Information
+## Mais informações
 
 * Data Binding: https://ui5.sap.com/#/topic/68b9644a253741e8a4b9e4279a35c247

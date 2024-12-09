@@ -50,7 +50,7 @@ Para dar ao cliente a melhor visão geral possível, adicione um pouco de cor ao
 
 Vamos dar uma olhada no aplicativo e nas mudanças no layout do item do controle `GridList`:
 
-![](images/05_01_0010.png)
+![](images/BTP_05_0010.png)
 
 > 💡 Observe que a temperatura ainda não está exibida corretamente, pois o formatador que faz a conversão de Celsius para Fahrenheit só será adicionado mais tarde neste exercício.
 
@@ -58,21 +58,21 @@ Vamos dar uma olhada no aplicativo e nas mudanças no layout do item do controle
 
 Neste exercício, você aprimorará seu aplicativo com alguma codificação de controlador adicional.
 
-> #### 🧑‍🎓 Explanation
-> This tutorial uses **TypeScript** instead of JavaScript and this exercise is the first one where you actually write such code, hence a brief introduction:
+> #### 🧑‍🎓 Explicação
+> Este tutorial usa **TypeScript** em vez de JavaScript e este exercício é o primeiro em que você realmente escreve esse código, daí uma breve introdução:
 >
-> TypeScript is not much different from JavaScript. In fact it is a super-set of JavaScript that just adds some language features *on top* which are used to specify the types of variables, function parameters etc. and define new types like complex structures. As a simple example, a variable can be specified to have type "string", then never a number can be assigned (which would be possible in JavaScript). The same is possible for more complex structures and classes. This type information is used by the code editor to massively help you writing code: code completion, inline documentation, prevention and early detection of errors, better refactoring, easier maintenance and much more. UI5 users who switched to TypeScript commonly confirm that it drastically increases development efficiency.
+> TypeScript não é muito diferente de JavaScript. Na verdade, é um superconjunto de JavaScript que apenas adiciona alguns recursos de linguagem *em cima* que são usados ​​para especificar os tipos de variáveis, parâmetros de função etc. e definir novos tipos como estruturas complexas. Como um exemplo simples, uma variável pode ser especificada para ter o tipo "string", então nunca um número pode ser atribuído (o que seria possível em JavaScript). O mesmo é possível para estruturas e classes mais complexas. Essas informações de tipo são usadas pelo editor de código para ajudar massivamente a escrever código: conclusão de código, documentação em linha, prevenção e detecção precoce de erros, melhor refatoração, manutenção mais fácil e muito mais. Usuários do UI5 que mudaram para TypeScript comumente confirmam que ele aumenta drasticamente a eficiência do desenvolvimento.
 >
-> Browsers cannot execute TypeScript, hence a transpilation step is needed, which converts the code to JavaScript - basically by stripping away all the type information. This also means the type safety and everything that TypeScript provides is purely focused on development time, not runtime of the code. Nevertheless the original sourcecode can be made available to browsers using "source maps", so when debugging you can see the original TypeScript code you wrote.
+> Os navegadores não podem executar TypeScript, portanto, uma etapa de transpilação é necessária, que converte o código para JavaScript - basicamente removendo todas as informações de tipo. Isso também significa que a segurança de tipo e tudo o que o TypeScript fornece é puramente focado no tempo de desenvolvimento, não no tempo de execução do código. No entanto, o código-fonte original pode ser disponibilizado para navegadores usando "mapas de origem", então, ao depurar, você pode ver o código TypeScript original que escreveu.
 >
-> Even the transpiled JavaScript code would look familar, though. As you see when looking at the TypeScript source files in the application, most of the code is plain JavaScript syntax! Most of the time, TypeScript-specific additions with type information are only in very few places.
+> Mesmo o código JavaScript transpilado pareceria familiar, no entanto. Como você vê ao olhar os arquivos de origem do TypeScript no aplicativo, a maior parte do código é sintaxe JavaScript simples! Na maioria das vezes, adições específicas do TypeScript com informações de tipo estão apenas em alguns lugares.
 >
-> UI5 itself is written in JavaScript without any type information. But all the types of the UI5 APIs are declared in separate type definition files which are released by the UI5 development team. These make the editor and transpiler aware of what types parameters passed to UI5 must have and what types the returned values have. These type definitions are already added as dependencies in this template (the `@sapui5/types` dev dependency in the `package.json` file) and the transpilation step is also already set up and mostly transparent for you as developer (handled by the `ui5-tooling-transpile` build task and middleware for the UI5 tooling).
+> O próprio UI5 é escrito em JavaScript sem nenhuma informação de tipo. Mas todos os tipos das APIs do UI5 são declarados em arquivos de definição de tipo separados que são lançados pela equipe de desenvolvimento do UI5. Isso torna o editor e o transpilador cientes de quais tipos os parâmetros passados ​​para o UI5 devem ter e quais tipos os valores retornados têm. Essas definições de tipo já foram adicionadas como dependências neste modelo (a dependência dev `@sapui5/types` no arquivo `package.json`) e a etapa de transpilação também já está configurada e é quase transparente para você como desenvolvedor (manipulada pela tarefa de construção `ui5-tooling-transpile` e middleware para as ferramentas UI5).
 >
-> With this knowledge you are now ready to create your first TypeScript file!
+> Com esse conhecimento, você agora está pronto para criar seu primeiro arquivo TypeScript!
 
 
-1. Have a look at `sensormanager/webapp/controller/Sensors.controller.ts`
+1. Dê uma olhada em `sensormanager/webapp/controller/Sensors.controller.ts`
 
 ###### sensormanager/webapp/controller/Sensors.controller.ts
 
@@ -90,19 +90,18 @@ export default class Sensors extends Controller {
     }
 }
 ```
-> #### 🧑‍🎓 Explanation
-> A controller is the place where you can add methods that implement functionality needed in the respective view. There is no such content yet, only `onInit`, which is one of the lifecycle methods called by the UI5 framework - this one is called when the controller is first initialized. Even this method is empty, hence the comment in the line above has been added in the template to avoid linting (code-checking) error messages. This comment can be deleted after adding method content.
+> #### 🧑‍🎓 Explicação
+> Um controlador é o lugar onde você pode adicionar métodos que implementam a funcionalidade necessária na respectiva visualização. Ainda não há tal conteúdo, apenas `onInit`, que é um dos métodos de ciclo de vida chamados pelo framework UI5 - este é chamado quando o controlador é inicializado pela primeira vez. Mesmo este método está vazio, portanto, o comentário na linha acima foi adicionado no modelo para evitar mensagens de erro de linting (verificação de código). Este comentário pode ser excluído após adicionar o conteúdo do método.
 >
-> In case you have seen traditional UI5 application code before or haven't stayed in touch with the JavaScript language evolution over the last years, the syntax might look unfamiliar: it is an EcmaScript 6 module, the `import` statement at the top is loading a UI5 class as dependency. The lower half is the definition of an ES6 class - yes, there are classes in JavaScript now.
+> Caso você tenha visto o código de aplicativo UI5 tradicional antes ou não tenha ficado em contato com a evolução da linguagem JavaScript nos últimos anos, a sintaxe pode parecer estranha: é um módulo EcmaScript 6, a instrução `import` no topo está carregando uma classe UI5 ​​como dependência. A metade inferior é a definição de uma classe ES6 - sim, existem classes em JavaScript agora.
 >
-> This code is almost 100% pure JavaScript without TypeScript syntax (only the `: void` return type is TypeScript and even this part is not really needed, as the TypeScript compiler can infer the return type). As mentioned above, most of the code will still be valid JavaScript. TypeScript-specific additions are only needed where the TypeScript compiler cannot automatically infer the type of something. But here the type of the imported UI5 `Controller` class is known, thanks to the type definitions provided by UI5, and the type of the newly defined class is automatically understood by the TypeScript compiler. Hence there is no need to add any written type information for those.
+> Este código é quase 100% JavaScript puro sem sintaxe TypeScript (apenas o tipo de retorno `: void` é TypeScript e mesmo esta parte não é realmente necessária, pois o compilador TypeScript pode inferir o tipo de retorno). Como mencionado acima, a maior parte do código ainda será JavaScript válido. Adições específicas do TypeScript são necessárias apenas quando o compilador TypeScript não pode inferir automaticamente o tipo de algo. Mas aqui o tipo da classe `Controller` importada do UI5 é conhecido, graças às definições de tipo fornecidas pelo UI5, e o tipo da classe recém-definida é automaticamente compreendido pelo compilador TypeScript. Portanto, não há necessidade de adicionar nenhuma informação de tipo escrita para eles.
 >
-> While we encourage the use of such modern JavaScript syntax when writing TypeScript, at runtime UI5 still requires the usage of UI5-specific APIs for module loading (`sap.ui.require(...)`/`sap.ui.define(...)`) and class definition (`SomeClass.extend("NewClassName", ...)`), hence in addition to the TypeScript transpilation also the ES6 module imports and classes are transformed to these UI5 APIs. The `@namespace` comment above the class is needed for this to create the class' full package name.
+> Embora incentivemos o uso dessa sintaxe JavaScript moderna ao escrever TypeScript, em tempo de execução o UI5 ainda requer o uso de APIs específicas do UI5 para carregamento de módulo (`sap.ui.require(...)`/`sap.ui.define(...)`) e definição de classe (`SomeClass.extend("NewClassName", ...)`), portanto, além da transpilação do TypeScript, também as importações de módulo ES6 e classes são transformadas para essas APIs do UI5. O comentário `@namespace` acima da classe é necessário para criar o nome completo do pacote da classe.
 
-2. Try hovering the mouse above `Controller` and you will see some of the UI5 documentation for it. Thanks to TypeScript you can even navigate to the definition of the respective UI5 API. E.g. in SAP Business Application Studio and in Microsoft Visual Studio Code by holding the `Ctrl`/`Cmd` key while clicking the name. This does not lead to the original source code of UI5, which is written in JavaScript, but to the TypeScript type definition files of UI5, which include all documentation. It can be very helpful to browse through the methods offered by a class or to navigate further up the inheritance chain.
+2. Tente passar o mouse sobre `Controller` e você verá parte da documentação do UI5 para ele. Graças ao TypeScript, você pode até navegar até a definição da respectiva API do UI5. Por exemplo, no SAP Business Application Studio e no Microsoft Visual Studio Code, segurando a tecla `Ctrl`/`Cmd` enquanto clica no nome. Isso não leva ao código-fonte original do UI5, que é escrito em JavaScript, mas aos arquivos de definição de tipo TypeScript do UI5, que incluem toda a documentação. Pode ser muito útil navegar pelos métodos oferecidos por uma classe ou navegar mais acima na cadeia de herança.
 
-3. Your next goal is to show an `sap.m.MessageToast` when your sensor data is loaded. Replace the `onInit` function of `Sensors.controller.ts` and add a function `getSensorModel` to retrieve the sensor model (also remove the `eslint-disable` comment above `onInit`):
-
+3. Seu próximo objetivo é mostrar um `sap.m.MessageToast` quando seus dados de sensor forem carregados. Substitua a função `onInit` de `Sensors.controller.ts` e adicione uma função `getSensorModel` para recuperar o modelo de sensor (também remova o comentário `eslint-disable` acima de `onInit`):
 
 ###### sensormanager/webapp/controller/Sensors.controller.ts
 
@@ -126,34 +125,33 @@ export default class Sensors extends Controller {
 
 ```
 
-> 🧑‍🎓 This code *does* contain some additional TypeScript-specific syntax: statements like `...  as ResourceModel` and `... as string` are type casts which assert that the respective value is not just *some kind of model*, but a `ResourceModel` and not a *string or undefined*, but it is indeed a `string`. Also, `function(oErr: Error)` declares that the method parameter `oErr` is of type `Error` (one of the types built in to the language).
+> 🧑‍🎓 Este código *contém* alguma sintaxe adicional específica do TypeScript: instruções como `... as ResourceModel` e `... as string` são conversões de tipo que afirmam que o respectivo valor não é apenas *algum tipo de modelo*, mas um `ResourceModel` e não uma *string ou indefinido*, mas é de fato uma `string`. Além disso, `function(oErr: Error)` declara que o parâmetro do método `oErr` é do tipo `Error` (um dos tipos incorporados à linguagem).
 
-4. Note that some of the UI5 class names (ResourceModel, ResourceBundle, MessageToast and JSONModel) are underlined in red because they have not been imported yet. If you hover over them, you are offered a "Quick Fix" which adds the imports automatically:
+4. Observe que alguns dos nomes de classe do UI5 (ResourceModel, ResourceBundle, MessageToast e JSONModel) estão sublinhados em vermelho porque ainda não foram importados. Se você passar o mouse sobre eles, será oferecida uma "Correção rápida" que adiciona as importações automaticamente:
+![](images/BTP_05_0020.png)
+Basta clicar em *Quick Fix* e então selecionar *Add all missing imports*. Isso adiciona todas as dependências necessárias como importações ao topo do arquivo do controlador, sem nenhuma digitação.
 
-![](images/05_02_0030.png)
-Just click on *Quick Fix* and then select *Add all missing imports*. This adds all required dependencies as imports to the top of the controller file, without any typing.
+![](images/BTP_05_0030.png)
 
-![](images/05_02_0040.png)
+5. Vamos ver se seu aplicativo UI5 é capaz de mostrar o `sap.m.MessageToast`! Mude para a aba do navegador com a pré-visualização do aplicativo aberta e recarregue a página. Preste atenção na área inferior: o `sap.m.MessageToast` deve ser exibido inicialmente por alguns segundos para confirmar que os dados do seu sensor foram carregados com sucesso.
 
-5. Let's see if your UI5 application is able to show the `sap.m.MessageToast`! Switch to the browser tab with the opened application preview and reload the page. Pay attention to the bottom area: the `sap.m.MessageToast` should be displayed initially for a few seconds to confirm that your sensor data has been loaded successfully.
+![](images/BTP_05_0040.png)
 
-![](images/05_03_0010.png)
+## Exercício 5.3 - Crie seu primeiro formatador
 
-## Exercise 5.3 - Create your First Formatter
+Seu próximo objetivo é trazer um pouco de cor para a interface do usuário. Você gostaria de exibir o ícone em uma cor adequada que seja baseada na temperatura real do sensor. Para fazer isso, você pode usar o conceito de formatador da UI5.
 
-Your next goal is to bring some color to the user interface. You'd like to display the icon in a suitable color which is based on the actual temperature of the sensor. To do this, you can use the formatter concept of UI5.
+>🧑‍🎓 Formatadores são funções simples que podem ser usadas para transformar valores ao vincular dados a uma visualização. Por exemplo, o valor subjacente é um número (a temperatura), mas na visualização ele deve ser visualizado como cor. Então o formatador tem a tarefa de retornar a cor adequada para o valor de temperatura fornecido. Os formatadores também podem ser usados ​​para, por exemplo, formatar números consistentemente ou adicionando uma unidade, daí seu nome.
 
->🧑‍🎓 Formatters are simple functions which can be used for transforming values when binding data to a view. E.g. the underlying value is a number (the temperature), but in the view it should be visualized as color. Then the formatter has the task to return the suitable color for the given temperature value. Formatters can also be used to e.g. format numbers consistently or by adding a unit, hence their name.
+1. Clique com o botão direito em `sensormanager/webapp` e selecione `New Folder...`.
 
-1. Right-click `sensormanager/webapp` and select `New Folder...`.
+2. Nomeie esta pasta como "format".
 
-2. Name this folder "format".
+3. Clique com o botão direito nesta nova pasta e selecione `New File...`.
 
-3. Right-click this new folder and select `New File...`.
+4. Nomeie este novo arquivo como `util.ts` (Observação: a extensão do arquivo é `ts` para TypeScript, não `js`!).
 
-4. Name this new file `util.ts` (Note: the file extension is `ts` for TypeScript, not `js`!).
-
-5. Inside this new file, add the formatter functions `formatIconColor` and `formatTemperature` along with the needed import and an enum for temperature thresholds.
+5. Dentro deste novo arquivo, adicione as funções do formatador `formatIconColor` e `formatTemperature` junto com a importação necessária e um enum para limites de temperatura.
 
 ###### sensormanager/webapp/format/util.ts
 
@@ -182,19 +180,19 @@ export function formatTemperature(temperature: number, unit: string): number {
     return Math.round(temperature * 10) / 10;
 }
 ```
->#### 🧑‍🎓 Explanation
-> You can observe that TypeScript allows specifying not only the type of the *temperature* parameter (so it can be used in a type-safe manner inside the function), but also the return type of the function (so any caller of the function knows exactly what is returned). In this case the return type is a union of `string` and UI5's built-in `IconColor` type - the result value can be either of them.
+>#### 🧑‍🎓 Explicação
+> Você pode observar que o TypeScript permite especificar não apenas o tipo do parâmetro *temperature* (para que ele possa ser usado de forma segura dentro da função), mas também o tipo de retorno da função (para que qualquer chamador da função saiba exatamente o que é retornado). Neste caso, o tipo de retorno é uma união de `string` e o tipo `IconColor` integrado do UI5 - o valor do resultado pode ser qualquer um deles.
 >
-> Another feature of TypeScript are enums. The threshold is used to specifiy certain levels of temperature in this example. When being transpiled, this enum is not simply removed like most TypeScript syntax, but converted to JavaScript code which allows usage at runtime. The enum is exported, so it can also be used in the controller later.
+> Outro recurso do TypeScript são os enums. O limite é usado para especificar certos níveis de temperatura neste exemplo. Ao ser transpilado, este enum não é simplesmente removido como a maioria da sintaxe do TypeScript, mas convertido para código JavaScript que permite o uso em tempo de execução. O enum é exportado, para que também possa ser usado no controlador posteriormente.
 >
-> The temperature formatting is unit dependent, which means if you set the locale file to use Fahrenheit, the conversion will happen here. At this point we kept it intentionally simple, but for sophisticated use-cases UI5 supports CLDR based [Unit Formatting](https://ui5.sap.com/#/topic/8e618a8d93cb4f92adc911b96047eb8d).
-## Exercise 5.5 - Use the Formatter in your View
+> A formatação da temperatura depende da unidade, o que significa que se você definir o arquivo de localidade para usar Fahrenheit, a conversão acontecerá aqui. Neste ponto, mantivemos isso intencionalmente simples, mas para casos de uso sofisticados, o UI5 suporta [Formatação de Unidade](https://ui5.sap.com/#/topic/8e618a8d93cb4f92adc911b96047eb8d) com base em CLDR.
+## Exercício 5.5 - Use o Formatador na sua View
 
-You're almost done. The last piece is adding the newly created formatter function to the binding of your icon.
+Você está quase terminando. A última parte é adicionar a função do formatador recém-criada à vinculação do seu ícone.
 
-1. Open `sensormanager/webapp/view/Sensors.view.xml`.
+1. Abra `sensormanager/webapp/view/Sensors.view.xml`.
 
-2. Add the newly created formatter by performing a `core:require`, which makes it available inside the XML View.
+2. Adicione o formatador recém-criado executando um `core:require`, que o torna disponível dentro da View XML.
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 ```xml
@@ -211,9 +209,9 @@ You're almost done. The last piece is adding the newly created formatter functio
     displayBlock="true">
 ```
 
-> 🧑‍🎓 Requiring other modules in the XMLView is a good way to avoid adding many functions in the controller which do nothing else than delegating the call to that other module. This keeps controller code cleaner.
+> 🧑‍🎓 Exigir outros módulos no XMLView é uma boa maneira de evitar adicionar muitas funções no controlador que não fazem nada além de delegar a chamada para esse outro módulo. Isso mantém o código do controlador mais limpo.
 
-3. Add the `color` property to the `sap.ui.core.Icon` definition, bind the `color` property to the path `sensors>temperature/value`, and assign the formatter function to the binding. Also add the temperature formatting to the `sap.m.ObjectNumber`, so that it shows the correct value. As result, the GridListItem should look like this:
+3. Adicione a propriedade `color` à definição `sap.ui.core.Icon`, vincule a propriedade `color` ao caminho `sensors>temperature/value` e atribua a função formatadora à vinculação. Adicione também a formatação de temperatura ao `sap.m.ObjectNumber`, para que ele mostre o valor correto. Como resultado, o GridListItem deve ficar assim:
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 ```xml
@@ -235,19 +233,19 @@ You're almost done. The last piece is adding the newly created formatter functio
                                 </HBox>
                             </f:GridListItem>
 ```
-> 🧑‍🎓 The binding for the `number` property contains two `parts`, which are then available in `util.formatTemperature` as parameters.
+> 🧑‍🎓 A vinculação para a propriedade `number` contém duas `partes`, que ficam disponíveis em `util.formatTemperature` como parâmetros.
 
-4. Let's see if your UI5 application does now color the icons depending on the sensor data! Switch to the browser tab with the opened application preview and reload the page if needed. The sensor icons should be displayed either in blue (default), yellow/orange (critical) or red (negative) and display the temperature in Fahrenheit correctly.
+4. Vamos ver se seu aplicativo UI5 agora colore os ícones dependendo dos dados do sensor! Mude para a aba do navegador com a visualização do aplicativo aberta e recarregue a página se necessário. Os ícones do sensor devem ser exibidos em azul (padrão), amarelo/laranja (crítico) ou vermelho (negativo) e exibir a temperatura em Fahrenheit corretamente.
 
-![](images/05_05_0010.png)
+![](images/BTP_05_0050.png)
 
-## Summary
+## Resumo
 
-Congratulations, you completed the exercise! You've improved the UI of your application by adding color and structure to your items. You've also learned how to use TypeScript for controller coding and how to create and utilize formatters to transform values when binding data to a view. Great job! Keep it up as you move on to [Exercise 6 - Filtering with the IconTabBar](../ex6/README.md).
+Parabéns, você concluiu o exercício! Você melhorou a IU do seu aplicativo adicionando cor e estrutura aos seus itens. Você também aprendeu como usar TypeScript para codificação de controlador e como criar e utilizar formatadores para transformar valores ao vincular dados a uma visualização. Ótimo trabalho! Continue assim enquanto avança para [Exercício 6 - Filtragem com o IconTabBar](../ex6/README.md).
 
-## Further Information
+## Mais informações
 
-* UI5 and TypeScript: https://sap.github.io/ui5-typescript/
+* UI5 e TypeScript: https://sap.github.io/ui5-typescript/
 * Model View Controller Concept: https://ui5.sap.com/#/topic/91f233476f4d1014b6dd926db0e91070
 * Controllers: https://ui5.sap.com/#/topic/121b8e6337d147af9819129e428f1f75
 * Formatting, Parsing, and Validating Data: https://ui5.sap.com/#/topic/07e4b920f5734fd78fdaa236f26236d8

@@ -16,23 +16,23 @@ Depois de concluir essas etapas, você terá criado seu primeiro aplicativo UI5.
 1. Clique em *New Project from Template* na págna *Get Started*.
     * [Opcional] Se você fechou a página *Get Started* , clique no botão superior (três linhas horizontais, também conhecidas como 'ícone de hambúrguer') na barra de navegação à esquerda e selecione *Help* e, em seguida, selecione *Get Started* para reabrir a página.</ul>
 
-<br>![](images/01_01_0010.png)<br><br>
+<br>![](images/BTP_01_0010.png)<br><br>
 
 2. Clique no *SAP Fiori generator* como modelo e clique em *Start*.
 
-<br>![](images/01_01_0012.png)<br><br>
+<br>![](images/BTP_01_0020.png)<br><br>
 
 3. Na etapa *Template Selection*, selecione *Basic* como modelo de aplicativo e clique em *Next*.
 
-<br>![](images/01_01_0013.png)<br><br>
+<br>![](images/BTP_01_0030.png)<br><br>
 
 4. Selecione *None* como Data Source, pois você desenvolve sem uma fonte de dados externa. Clique em *Next*
 
-<br>![](images/01_01_0014.png)<br><br>
+<br>![](images/BTP_01_0040.png)<br><br>
 
 5. Insira *Sensors* como view name. (Mesmo que esta etapa seja intitulada "Entity Selection", você não seleciona um conjunto de entidades, pois começa sem um serviço de dados).
    
-<br>![](images/01_01_0015.png)<br><br>
+<br>![](images/BTP_01_0050.png)<br><br>
 
 7. Insira as seguintes configurações na etapa *Project Attributes*:
     1. Insira *sensormanager* como *Module name*.
@@ -45,19 +45,19 @@ Depois de concluir essas etapas, você terá criado seu primeiro aplicativo UI5.
     8. Defina *Configure advanced options* como *Yes*. Novas opções aparecem abaixo.
     9. Na parte inferior, defina *Enable TypeScript* como *Yes* para implementar o aplicativo usando TypeScript.
     10. Clique em *Next*.
-<br>![](images/01_01_0016.png)<br><br>
-<br>![](images/01_01_0016b.png)<br><br>
+<br>![](images/BTP_01_0060.png)<br><br>
+<br>![](images/BTP_01_0070.png)<br><br>
 
 
 8. Na próxima etapa, selecione *Cloud Foundry* omo destino, deixe o nome do Destino como "None" e certifique-se de que a opção *Yes* esteja marcada para adicionar o aplicativo ao roteador do aplicativo e clique em *Finish*.  </ul>
 
-<br><br>![](images/01_01_0017.png)<br><br>
+<br><br>![](images/BTP_01_0080.png)<br><br>
 
 8. O projeto agora está sendo gerado e uma janela de notificação aparecerá no canto inferior direito assim que o processo for concluído.
 
 9. Depois que o processo for concluído, o Storyboard será aberto, o que será útil para projetos maiores com fontes de dados externas. Não fazemos uso dele neste tutorial. Em vez disso, você pode abrir a página *Application Info* para obter uma visão geral do projeto e a lista de coisas que você pode fazer com o projeto. Para fazer isso, abra a Paleta de Comandos usando o comando `CTRL + Shift + P` (`Cmd + Shift + P` no Mac), filtre por "*Fiori: Open Application Info*" e selecione-o.
 
-![](images/01_01_0019.png)
+![](images/BTP_01_0090.png)
 
 ## Exercício 1.2 – Experimentar o aplicativo gerado
 
@@ -65,15 +65,15 @@ Depois de concluir essas etapas, você terá criado seu primeiro aplicativo UI5.
 
 1. Para iniciar o aplicativo, pressione o ícone verde de *play* ("Run and Debug") no lado direito da barra de cabeçalho.
 
-![](images/01_02_0010.png)
+![](images/BTP_01_0100.png)
 
 2. No menu suspenso que se abre no cabeçalho, selecione a primeira entrada "Start sensormanager" (*sem* "Local"). Para inícios subsequentes, esta seleção será lembrada.)
 
-![](images/01_02_0020.png)
+![](images/BTP_01_0110.png)
 
 3. Após alguns instantes, o aplicativo deve ser iniciado:
 
-![](images/01_02_0030.png)
+![](images/BTP_01_0120.png)
 
 ## Resumo
 Muito bem! Você criou e visualizou com êxito uma nova aplicação UI5 usando o SAP Business Application Studio.

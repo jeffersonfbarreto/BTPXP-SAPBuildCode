@@ -10,7 +10,7 @@ Ao final dessas etapas, você saberá como navegar do SAP Build Lobby para o SAP
 
 2. Clique no botão *Criar* acima da tabela para iniciar um novo projeto.
 
-![](images/AD265_01_0000.png)
+![](images/BTP_01_0000.png)
 
 3. It's time to *Build an Application*! Click on the corresponding tile.
 

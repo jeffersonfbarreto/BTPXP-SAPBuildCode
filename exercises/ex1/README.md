@@ -39,7 +39,7 @@ Depois de concluir essas etapas, você terá criado seu primeiro aplicativo UI5.
     2. Insira *Sensor Manager* como *Application title*.
     3. Insira *keepcool* como *Application namespace*.
     4. Você pode manter a descrição padrão.
-    5. Mantenha o caminho da pasta do projeto como */home/user/projects*
+    5. Mantenha o caminho da pasta do projeto como */home/user/projects/AD08_XXX*
     6. Mantenha a versão mais recente disponível da UI5 selecionada.
     7. Defina *Add deployment configuration* como *Yes*.
     8. Defina *Configure advanced options* como *Yes*. Novas opções aparecem abaixo.
@@ -49,38 +49,33 @@ Depois de concluir essas etapas, você terá criado seu primeiro aplicativo UI5.
 <br>![](images/01_01_0016b.png)<br><br>
 
 
-8. In the next step, select *Cloud Foundry* as target, leave the Destination name to "None" and make sure that the *Yes* is checked for adding the application to the application router and click *Finish*.  </ul>
+8. Na próxima etapa, selecione *Cloud Foundry* omo destino, deixe o nome do Destino como "None" e certifique-se de que a opção *Yes* esteja marcada para adicionar o aplicativo ao roteador do aplicativo e clique em *Finish*.  </ul>
 
 <br><br>![](images/01_01_0017.png)<br><br>
 
-8. The project is now being generated, and a notification window will appear in the lower right corner once the process has completed. Wait for the message that the project has been generated!
+8. O projeto agora está sendo gerado e uma janela de notificação aparecerá no canto inferior direito assim que o processo for concluído.
 
-9. A warning popup may tell you that the project "is not in current workspace"; in this case, select the left button "Add project to workspace".
-
-<br><br>![](images/01_01_0018.png)<br><br>
-
-10. Once the process has completed, the *Storyboard* opens, which will get useful for larger projects with external data sources. We don't make use of it in this tutorial. Instead, you can open the *Application Info* page to get an overview of the project and the list of things you can do with the project. To do so, open the Command Palette using the command `CTRL + Shift + P` (`Cmd + Shift + P` on Mac), then filter for "*Fiori: Open Application Info*" and select it.
-
+9. Depois que o processo for concluído, o Storyboard será aberto, o que será útil para projetos maiores com fontes de dados externas. Não fazemos uso dele neste tutorial. Em vez disso, você pode abrir a página *Application Info* para obter uma visão geral do projeto e a lista de coisas que você pode fazer com o projeto. Para fazer isso, abra a Paleta de Comandos usando o comando `CTRL + Shift + P` (`Cmd + Shift + P` no Mac), filtre por "*Fiori: Open Application Info*" e selecione-o.
 
 ![](images/01_01_0019.png)
 
-## Exercise 1.2 - Try out the generated Application
+## Exercício 1.2 – Experimentar o aplicativo gerado
 
-It's time for a first preview of your newly created application!
+É hora de uma primeira prévia do seu aplicativo recém-criado!
 
-1. To start the application, press the green *play* icon ("Run and Debug") on the right side of the header bar.
+1. Para iniciar o aplicativo, pressione o ícone verde de *play* ("Run and Debug") no lado direito da barra de cabeçalho.
 
 ![](images/01_02_0010.png)
 
-2. In the dropdown that opens in the header, select the first entry "Start sensormanager" (*without* "Local"). (For subsequent starts this selection will be remembered.)
+2. No menu suspenso que se abre no cabeçalho, selecione a primeira entrada "Start sensormanager" (*sem* "Local"). Para inícios subsequentes, esta seleção será lembrada.)
 
 ![](images/01_02_0020.png)
 
-3. After a few moments, the application should start up:
+3. Após alguns instantes, o aplicativo deve ser iniciado:
 
 ![](images/01_02_0030.png)
 
-## Summary
-Well done! You have successfully created and previewed a new UI5 application using SAP Business Application Studio.
+## Resumo
+Muito bem! Você criou e visualizou com êxito uma nova aplicação UI5 usando o SAP Business Application Studio.
 
-You're now ready to leverage sensor data for "Keep Cool, Inc.". This foundational step puts you on track to improve their workflow and react quickly to any sensor issues. Keep up the good work as you proceed to [Exercise 2 - Add First Content](../ex2/README.md).
+Agora você está pronto para aproveitar os dados do sensor para "Keep Cool, Inc.". Esta etapa fundamental coloca você no caminho certo para melhorar seu fluxo de trabalho e reagir rapidamente a quaisquer problemas de sensor. Continue o bom trabalho enquanto avança para o [Exercício 2 - Adicionar primeiro conteúdo](../ex2/README.md).

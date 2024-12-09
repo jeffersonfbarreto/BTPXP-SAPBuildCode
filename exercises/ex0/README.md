@@ -1,4 +1,4 @@
-# Exercício 0 - Introdução
+![image](https://github.com/user-attachments/assets/57e6cdc4-b31d-42df-9fc1-5c89d1b4c579)# Exercício 0 - Introdução
 
 Neste exercício, você será orientado sobre como acessar sua conta do SAP Business Application Studio, configurar um espaço de desenvolvimento e obter uma rápida introdução às suas funcionalidades.
 
@@ -12,32 +12,27 @@ Ao final dessas etapas, você saberá como navegar do SAP Build Lobby para o SAP
 
 ![](images/BTP_01_0000.png)
 
-3. It's time to *Build an Application*! Click on the corresponding tile.
+3. É hora de *Criar um aplicativo!* Clique no bloco correspondente.
 
 ![](images/AD265_01_0010.png)
 
-4. Select the new pro-code offering *SAP Build Code*.
+4. Selecione *SAP Build Code*.
 
 ![](images/AD265_01_0020.png)
 
-5. Choose *UI Application*.
+5. Escolha *SAP Fiori Application*.
 
 ![](images/AD265_01_0030.png)
 
-6. Assign a name to your new project, for instance, *AD265_XX* , where *XX* is your user number. Leave the default dev space and click "Create".
+6. Atribua um nome ao seu novo projeto, por exemplo, AD08_XX , onde XX é o seu número de usuário. Escolha o espaço de desenvolvimento que desejar e clique em "Criar".
 
 ![](images/AD265_01_0040.png)
 
-7. Your development space is now being set up and launched. This process may take a few moments. Please wait while it is being created. You can find your new project in the table. Clicking on *AD265_XX* or the name of your project will take you to the SAP Business Application Studio
+7. Seu espaço de desenvolvimento agora está sendo configurado e lançado. Esse processo pode levar alguns instantes. Aguarde enquanto ele está sendo criado. Você pode encontrar seu novo projeto na tabela. Clicar em *AD08_XX* ou no nome do seu projeto o levará ao SAP Business Application Studio
 
 ![](images/AD265_01_0050.png)
 
 
-6. We recommend bookmarking this URL for easy access to the SAP Business Application Studio within your development space.
-
-![](images/00_01_0040.png)
-
-
 ## Summary
 
-Congratulations! You've successfully used the SAP Build Lobby to create your own project, and familiarized yourself with the basics of the platform. Keep up the momentum as you continue to [Exercise 1 - Project Setup Using SAP Business Application Studio](../ex1/README.md).
+Parabéns! Você usou com sucesso o SAP Build Lobby para criar seu próprio projeto e se familiarizou com os conceitos básicos da plataforma. Mantenha o ritmo enquanto continua para o [Exercício 1 - Configuração do projeto usando o SAP Business Application Studio](../ex1/README.md).

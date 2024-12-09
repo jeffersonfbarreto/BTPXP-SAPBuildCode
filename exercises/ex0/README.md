@@ -14,24 +14,23 @@ Ao final dessas etapas, você saberá como navegar do SAP Build Lobby para o SAP
 
 3. É hora de *Criar um aplicativo!* Clique no bloco correspondente.
 
-![](images/AD265_01_0010.png)
+![](images/BTP_01_0010.png)
 
 4. Selecione *SAP Build Code*.
 
-![](images/AD265_01_0020.png)
+![](images/BTP_01_0020.png)
 
 5. Escolha *SAP Fiori Application*.
 
-![](images/AD265_01_0030.png)
+![](images/BTP_01_0030.png)
 
 6. Atribua um nome ao seu novo projeto, por exemplo, AD08_XX , onde XX é o seu número de usuário. Escolha o espaço de desenvolvimento que desejar e clique em "Criar".
 
-![](images/AD265_01_0040.png)
+![](images/BTP_01_0040.png)
 
 7. Seu espaço de desenvolvimento agora está sendo configurado e lançado. Esse processo pode levar alguns instantes. Aguarde enquanto ele está sendo criado. Você pode encontrar seu novo projeto na tabela. Clicar em *AD08_XX* ou no nome do seu projeto o levará ao SAP Business Application Studio
 
-![](images/AD265_01_0050.png)
-
+![](images/BTP_01_0050.png)
 
 ## Summary
 

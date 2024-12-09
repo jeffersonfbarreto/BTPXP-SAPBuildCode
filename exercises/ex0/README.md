@@ -4,11 +4,11 @@ Neste exercício, você será orientado sobre como acessar sua conta do SAP Busi
 
 ## Acessando o SAP Build Lobby
 
-By the end of these steps, you will know how to navigate from the SAP Build Lobby to the SAP Business Application Studio and set it up for your development needs.
+Ao final dessas etapas, você saberá como navegar do SAP Build Lobby para o SAP Business Application Studio e configurá-lo para suas necessidades de desenvolvimento.
 
-1. Open the [SAP Build Lobby](https://lcapteched.eu10.build.cloud.sap/lobby) using a web browser of your preference (Google Chrome, Microsoft Edge, Apple Safari, etc.) and log in using your credentials.
+1. Abra o [SAP Build Lobby](https://lcapteched.eu10.build.cloud.sap/lobby) usando um navegador da Web de sua preferência (Google Chrome, Microsoft Edge, Apple Safari, etc.) e faça login usando suas credenciais.
 
-2. Click on the *Create* button above the table to start a new project.
+2. Clique no botão *Criar* acima da tabela para iniciar um novo projeto.
 
 ![](images/AD265_01_0000.png)
 

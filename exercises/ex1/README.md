@@ -1,55 +1,55 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex1)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex1/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
 
-# Exercise 1 - Project Setup Using SAP Business Application Studio
+# Exercício 1 - Configuração do projeto usando o SAP Business Application Studio
 
-In this exercise you'll create a new UI5 application based on a template provided by SAP Business Application Studio.
+Neste exercício, você criará um novo aplicativo UI5 com base em um modelo fornecido pelo SAP Business Application Studio.
 
-## Scenario
+## Cenário
 
-Your customer "Keep Cool, Inc." is an operator of several icehouses across the country. Recently, they have been upgraded with new sensors with Internet connection, so that their measuring values are available as a service. To make use of this data and improve their internal workflows, the company asked us to provide an application leveraging this sensor data, visualize it, and provide an overview of the current state of each sensor, so that they can react quickly on any issues.
+Seu cliente "Keep Cool, Inc." é um operador de várias casas de gelo em todo o país. Recentemente, eles foram atualizados com novos sensores com conexão à Internet, para que seus valores de medição estejam disponíveis como um serviço. Para fazer uso desses dados e melhorar seus fluxos de trabalho internos, a empresa nos pediu para fornecer um aplicativo aproveitando esses dados do sensor, visualizá-los e fornecer uma visão geral do estado atual de cada sensor, para que eles possam reagir rapidamente a quaisquer problemas.
 
-## Exercise 1.1 - Create a New UI5 Application
+## Exercício 1.1 – Criar um novo aplicativo UI5
 
-After completing these steps you'll have created your first UI5 application.
+Depois de concluir essas etapas, você terá criado seu primeiro aplicativo UI5.
 
-1. Click on *New Project from Template* on the *Get Started* page.
-    * [Optional] If you have closed the *Get Started* page accidentally, click on the top-most button (three horizontal lines, also known as the 'hamburger icon') in the left-hand navigation bar and then select *Help*, then select *Get Started* to re-open the page.</ul>
+1. Clique em *New Project from Template* na págna *Get Started*.
+    * [Opcional] Se você fechou a página *Get Started* , clique no botão superior (três linhas horizontais, também conhecidas como 'ícone de hambúrguer') na barra de navegação à esquerda e selecione *Help* e, em seguida, selecione *Get Started* para reabrir a página.</ul>
 
 <br>![](images/01_01_0010.png)<br><br>
 
-2. Click on *SAP Fiori application* as template and click *Start*.
+2. Clique no *SAP Fiori generator* como modelo e clique em *Start*.
 
 <br>![](images/01_01_0012.png)<br><br>
 
-3. In the *Template Selection* step, select *Basic* as application template and click *Next* (keep the "template Type" *SAP Fiori*).
+3. Na etapa *Template Selection*, selecione *Basic* como modelo de aplicativo e clique em *Next*.
 
 <br>![](images/01_01_0013.png)<br><br>
 
-4. Select *None* as Data Source, since you develop without an external data source. Click *Next*
+4. Selecione *None* como Data Source, pois você desenvolve sem uma fonte de dados externa. Clique em *Next*
 
 <br>![](images/01_01_0014.png)<br><br>
 
-5. Enter *Sensors* as view name in the next step. (even though this step is titled "Entity Selection", you don't select an entity set, since you start without a data service).
-
+5. Insira *Sensors* como view name. (Mesmo que esta etapa seja intitulada "Entity Selection", você não seleciona um conjunto de entidades, pois começa sem um serviço de dados).
+   
 <br>![](images/01_01_0015.png)<br><br>
 
-6. Enter the following settings in the *Project Attributes* step:
-    1. Enter *sensormanager* as *Module name*.
-    2. Enter *Sensor Manager* as *Application title*.
-    3. Enter *keepcool* as your namespace.
-    4. You can keep the default description.
-    5. Keep the Project folder path as */home/user/projects*
-    6. Keep the latest available UI5 release selected.
-    7. Set *Add deployment configuration* to *Yes*.
-    8. Set *Configure advanced options* to *Yes*. New options appear below.
-    9. At the very bottom, set *Enable TypeScript* to *Yes* to implement the application using TypeScript.
-    10. Click *Next*.
+7. Insira as seguintes configurações na etapa *Project Attributes*:
+    1. Insira *sensormanager* como *Module name*.
+    2. Insira *Sensor Manager* como *Application title*.
+    3. Insira *keepcool* como *Application namespace*.
+    4. Você pode manter a descrição padrão.
+    5. Mantenha o caminho da pasta do projeto como */home/user/projects*
+    6. Mantenha a versão mais recente disponível da UI5 selecionada.
+    7. Defina *Add deployment configuration* como *Yes*.
+    8. Defina *Configure advanced options* como *Yes*. Novas opções aparecem abaixo.
+    9. Na parte inferior, defina *Enable TypeScript* como *Yes* para implementar o aplicativo usando TypeScript.
+    10. Clique em *Next*.
 <br>![](images/01_01_0016.png)<br><br>
 <br>![](images/01_01_0016b.png)<br><br>
 
 
-7. In the next step, select *Cloud Foundry* as target, leave the Destination name to "None" and make sure that the *Yes* is checked for adding the application to the application router and click *Finish*.  </ul>
+8. In the next step, select *Cloud Foundry* as target, leave the Destination name to "None" and make sure that the *Yes* is checked for adding the application to the application router and click *Finish*.  </ul>
 
 <br><br>![](images/01_01_0017.png)<br><br>
 

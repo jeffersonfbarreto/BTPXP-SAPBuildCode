@@ -1,15 +1,15 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex4)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex4/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
 
-# Exercise 4 - Introduce Localization (i18n)
+# Exercício 4 - Introduzir localização (i18n)
 
-In this exercise you'll learn how easy it is to enable localization for your UI5 application.
+Neste exercício, você aprenderá como é fácil habilitar a localização para seu aplicativo UI5.
 
-## Exercise 4.1 - Using i18n Variables
+## Exercício 4.1 - Usando variáveis ​​i18n
 
-SAPUI5 has the option to support different languages, configurable based on the user's preferences. Its enterprise-ready capabilities include comprehensive localization features like number and date formatting, support for right-to-left languages and more, enabling developers to effortlessly tailor their applications to various languages and regions, thus ensuring global accessibility and user-friendliness. In this exercise we'll focus on translation.
+O SAPUI5 tem a opção de suportar diferentes idiomas, configuráveis ​​com base nas preferências do usuário. Seus recursos prontos para empresas incluem recursos abrangentes de localização, como formatação de números e datas, suporte para idiomas da direita para a esquerda e muito mais, permitindo que os desenvolvedores adaptem facilmente seus aplicativos a vários idiomas e regiões, garantindo assim acessibilidade global e facilidade de uso. Neste exercício, focaremos na tradução.
 
-Find the `i18n.properties` file, which is located under `sensormanager/webapp/i18n/` and contains translatable texts. Replace the content with the following set of variables:
+Encontre o arquivo `i18n.properties`, que está localizado em `sensormanager/webapp/i18n/` e contém textos traduzíveis. Substitua o conteúdo pelo seguinte conjunto de variáveis:
 
 ###### sensormanager/webapp/i18n/i18n.properties
 
@@ -30,35 +30,35 @@ cardTitle=Customer
 temperatureUnit=°C
 ```
 
->💡 Some of the texts will only be used in upcoming exercises.
+>💡 Alguns dos textos serão usados ​​somente em exercícios futuros.
 
-1. Switch browser tabs (refresh if needed) to see how the title of your UI5 application changed.
+1. Alterne as abas do navegador (atualize se necessário) para ver como o título do seu aplicativo UI5 mudou.
 
-![](images/04_01_0010.png)
+![](images/BTP_04_0010.png)
 
-## Exercise 4.2 - Add Additional Languages
+## Exercício 4.2 - Adicionar idiomas adicionais
 
-Your UI5 application is prepared for localization. But right now no matter which browser language is configured, your UI5 application currently displays the texts of the `i18n.properties` file.
-Let's provide new language files for English and Hindi.
+Seu aplicativo UI5 está preparado para localização. Mas agora, não importa qual idioma do navegador esteja configurado, seu aplicativo UI5 exibe atualmente os textos do arquivo `i18n.properties`.
+Vamos fornecer novos arquivos de idioma para inglês e português.
 
-1. Go to folder `sensormanager/webapp/i18n/` and right-click it.
+1. Vá para a pasta `sensormanager/webapp/i18n/` e clique com o botão direito do mouse.
 
-2. In the popup, click `New File`.
+2. No pop-up, clique em `New File`.
 
-3. Enter `i18n_en.properties` as file name.
+3. Insira `i18n_en.properties` como nome do arquivo.
 
-4. Repeat Steps 1 and 2.
+4. Repita as etapas 1 e 2.
 
-5. Enter `i18n_hi.properties` as file name.
+5. Insira `i18n_pt.properties` como nome do arquivo.
 
-6. Open `i18n_en.properties` and paste the following content:
+6. Abra `i18n_en.properties` e cole o seguinte conteúdo:
 
 ###### sensormanager/webapp/i18n/i18n_en.properties
 
 ```ini
 title=Keep Cool Inc. Sensor Manager
 appTitle=Sensor Manager
-appDescription=The sensor
+appDescription=The sensor manager
 noSensorDataText=No Sensor Data
 msgSensorDataLoaded=All sensors online!
 msgFilterAll=All
@@ -69,46 +69,46 @@ toolTipShowCustomers=Show Customers
 titleCustomerDialog=Customers
 titleSensorStatus=Sensor Status
 cardTitle=Customer
-temperatureUnit=°F
-```
-
-> Why English again? The original `i18n.properties` file already was English! Commonly the original language is "developer English", serving as input for translations, including review by a translation expert for English to ensure good language. In some cases, the original language may not even be English. Note, that we change the temperature here to reflect Fahrenheit as commonly used measurement for temperatures in some English speaking countries. You can choose whichever suits best.
-
-7. Open `i18n_hi.properties` and paste the following content:
-
-###### sensormanager/webapp/i18n/i18n_hi.properties
-
-```ini
-title=कूल रखें इंक। सेंसर मैनेजर
-appTitle=सेंसर मैनेजर
-appDescription=सेंसर मैनेजर
-noSensorDataText=कोई सेंसर डेटा नहीं
-msgSensorDataLoaded=सभी सेंसर ऑनलाइन हैं!
-msgFilterAll=सभी
-msgFilterCold=ठंडा
-msgFilterWarm=गर्म
-msgFilterHot=बहुत गर्म
-toolTipShowCustomers=ग्राहक दिखाएं
-titleCustomerDialog=ग्राहक
-titleSensorStatus=सेंसर स्थिति
-cardTitle=ग्राहक
 temperatureUnit=°C
 ```
 
-8. Depending on the browser language you've configured, you should now be able to see different text on your user interface.
-    * If your browser language is English, the content of `i18n_en.properties` is used.
-    * If your browser language is Hindi, the content of `i18n_hi.properties` is used.
-    * For any other language, the content of `i18n.properties` is used.
+>Por que inglês de novo? O arquivo original `i18n.properties` já era inglês! Normalmente, o idioma original é "inglês do desenvolvedor", servindo como entrada para traduções, incluindo revisão por um especialista em tradução para inglês para garantir uma boa linguagem. Em alguns casos, o idioma original pode nem ser inglês. Observe que alteramos a temperatura aqui para refletir Fahrenheit como medida comumente usada para temperaturas em alguns países de língua inglesa. Você pode escolher o que for melhor.
 
-## Exercise 4.3 - Configure Supported Languages
+7. Abra `i18n_pt.properties` e cole o seguinte conteúdo:
+   
+###### sensormanager/webapp/i18n/i18n_pt.properties
 
-Usually, only the `i18n.properties` file is maintained by developers. The language-dependent files will be filled by native speakers or translators. As an application developer, you can configure which languages are supported by your application, and which language is your default (aka fallback) language. In this session English will be the default language, and additionally Hindi should be supported.
+```ini
+title=Keep Cool Inc. Gerenciador de Sensores
+appTitle=Gerenciador de Sensores
+appDescription=O sensor
+noSensorDataText=Nenhum dado do sensor
+msgSensorDataLoaded=Todos os sensores online!
+msgFilterAll=Todos
+msgFilterCold=Frio
+msgFilterWarm=Quente
+msgFilterHot=Muito quente
+toolTipShowCustomers=Mostrar clientes
+titleCustomerDialog=Clientes
+titleSensorStatus=Status do sensor
+cardTitle=Cliente
+temperatureUnit=°C
+```
 
-1. Click on `manifest.json` link in the *Application Info* page. If you had closed the *Application Info* page, you can reopen it by using command `Fiori: Open Application Info` from command palette. You can also find the `manifest.json` file located under `sensormanager/webapp`.
+8. Dependendo do idioma do navegador que você configurou, agora você deve conseguir ver textos diferentes na sua interface de usuário.
+* Se o idioma do seu navegador for inglês, o conteúdo de `i18n_en.properties` será usado.
+* Se o idioma do seu navegador for português, o conteúdo de `i18n_pt.properties` será usado.
+* Para qualquer outro idioma, o conteúdo de `i18n.properties` será usado.
 
-2. Go to section `sap.ui5` / `models` / `i18n`. Here, add two new configurations inside your settings object.
-      1. Add the property `supportedLocales` and assign the locales for Hindi and English `["hi", "en"]`
-      2. Add the property `fallbackLocale` and assign the English locale `"en"`
+## Exercício 4.3 - Configurar idiomas suportados
+
+Normalmente, apenas o arquivo `i18n.properties` é mantido pelos desenvolvedores. Os arquivos dependentes de idioma serão preenchidos por falantes nativos ou tradutores. Como desenvolvedor de aplicativos, você pode configurar quais idiomas são suportados pelo seu aplicativo e qual idioma é seu idioma padrão (também conhecido como fallback). Nesta sessão, o inglês será o idioma padrão e, adicionalmente, o português deve ser suportado.
+
+1. Clique no link `manifest.json` na página *Informações do aplicativo*. Se você fechou a página *Informações do aplicativo*, pode reabri-la usando o comando `Fiori: Abrir informações do aplicativo` na paleta de comandos. Você também pode encontrar o arquivo `manifest.json` localizado em `sensormanager/webapp`.
+
+2. Vá para a seção `sap.ui5` / `models` / `i18n`. Aqui, adicione duas novas configurações dentro do seu objeto de configurações.
+1. Adicione a propriedade `supportedLocales` e atribua os locais para Português e Inglês `["pt", "en"]`
+2. Adicione a propriedade `fallbackLocale` e atribua o locale Inglês `"en"`
 
 ###### sensormanager/webapp/manifest.json
 
@@ -117,36 +117,36 @@ Usually, only the `i18n.properties` file is maintained by developers. The langua
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
                     "bundleName": "keepcool.sensormanager.i18n.i18n",
-                    "supportedLocales": ["hi", "en"],
+                    "supportedLocales": ["pt", "en"],
                     "fallbackLocale": "en"
                 }
             },
 ```
 
->🧑‍🎓 This ResourceModel was provided as part of the application template and is a UI5 feature which provides UI texts automatically in the current language of the user. The data source for the model are the `i18n...` files we just created, linked to the model by the `bundleName`. In the XML view, the texts can be used like any other data from a model, using data binding.
+>🧑‍🎓 Este ResourceModel foi fornecido como parte do modelo do aplicativo e é um recurso do UI5 que fornece textos de UI automaticamente no idioma atual do usuário. A fonte de dados para o modelo são os arquivos `i18n...` que acabamos de criar, vinculados ao modelo pelo `bundleName`. Na visualização XML, os textos podem ser usados ​​como quaisquer outros dados de um modelo, usando vinculação de dados.
 
-3. Let's see if your UI5 application is able to start in English and Hindi! Switch to the browser tab with an opened application preview (reload the page if needed). The UI5 application should start in English or in Hindi, depending on your browser language.
+3. Vamos ver se seu aplicativo UI5 consegue iniciar em inglês e português! Mude para a aba do navegador com uma visualização do aplicativo aberta (recarregue a página se necessário). O aplicativo UI5 deve iniciar em inglês ou português, dependendo do idioma do seu navegador.
 
-![](images/04_01_0010.png)
+![](images/BTP_04_0010.png)
 
-4. UI5 supports the `sap-ui-language=...` URL parameter to simulate another browser language. The preview URL may already have other URL parameters plus a URL hash and look like this:
-`...cloud.sap/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display`. It is important to insert the new URL parameter for the language at the correct position and separate it from other URL parameters with an ampersand character (`&`). The easiest way may be to add it right behind the question mark, which separates the address from the parameters:
-`...cloud.sap/test/flpSandbox.html?sap-ui-language=hi&sap-ui-xx-viewCache=false#keepcoolsensormanager-display`. Then Press `Enter`. UI5 should now start in Hindi regardless of the language you have configured as your browser language.
+4. O UI5 suporta o parâmetro de URL `sap-ui-language=...` para simular outro idioma do navegador. O URL de visualização pode já ter outros parâmetros de URL mais um hash de URL e se parecer com isto:
+`...cloud.sap/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display`. É importante inserir o novo parâmetro de URL para o idioma na posição correta e separá-lo de outros parâmetros de URL com um caractere e comercial (`&`). A maneira mais fácil pode ser adicioná-lo logo atrás do ponto de interrogação, que separa o endereço dos parâmetros:
+`...cloud.sap/test/flpSandbox.html?sap-ui-language=pt&sap-ui-xx-viewCache=false#keepcoolsensormanager-display`. Em seguida, pressione `Enter`. O UI5 agora deve iniciar em português, independentemente do idioma que você configurou como idioma do navegador.
 
-> If the URL just ends with `....cloud.sap/index.html`, without URL parameters, then you can simply append `?sap-ui-language=hi` to switch to Hindi.
+> Se a URL terminar apenas com `....cloud.sap/index.html`, sem parâmetros de URL, você pode simplesmente acrescentar `?sap-ui-language=pt` para alternar para português.
 
-![](images/04_03_0020.png)
+![](images/BTP_04_0020.png)
 
-5. Let's try to start the application in another language, e.g German. Change the above URL parameter to `sap-ui-language=de`. UI5 should now start in English, because German is not supported and you have configured English as your fallback locale.
+5. Vamos tentar iniciar o aplicativo em outro idioma, por exemplo, alemão. Altere o parâmetro de URL acima para `sap-ui-language=de`. O UI5 agora deve iniciar em inglês, porque o alemão não é suportado e você configurou o inglês como seu local de fallback.
 
-![](images/04_01_0010.png)
+![](images/BTP_04_0010.png)
 
-If you'd like to support German, or any other language of your choice, feel free to repeat the steps described in [Exercise 4.2 Add New Languages](#exercise-42---add-additional-languages) with your desired language.
+Se você quiser oferecer suporte ao alemão ou a qualquer outro idioma de sua escolha, sinta-se à vontade para repetir as etapas descritas em [Exercício 4.2 Adicionar novos idiomas](#exercise-42---add-additional-languages) com o idioma desejado.
 
-## Summary
-Great job! You have successfully implemented translation in your UI5 application, allowing your app to support multiple languages based on user preferences. Along the way, you have learned how the resource model works and the application can be switched to different languages. This is a major step in making your application globally accessible and user-friendly. Keep up the good work and continue to [Exercise 5 - Improve Visualization](../ex5/README.md)!
+## Resumo
+Ótimo trabalho! Você implementou com sucesso a tradução em seu aplicativo UI5, permitindo que seu aplicativo suporte vários idiomas com base nas preferências do usuário. Ao longo do caminho, você aprendeu como o modelo de recursos funciona e o aplicativo pode ser alternado para diferentes idiomas. Este é um passo importante para tornar seu aplicativo globalmente acessível e amigável. Continue com o bom trabalho e continue para [Exercício 5 - Melhorar a visualização](../ex5/README.md)!
 
-## Further Information
+## Mais informações
 
-* Localization: https://ui5.sap.com/#/topic/91f217c46f4d1014b6dd926db0e91070
-* Supported Locales and Fallback: https://ui5.sap.com/#/topic/ec753bc539d748f689e3ac814e129563
+* Localização: https://ui5.sap.com/#/topic/91f217c46f4d1014b6dd926db0e91070
+* Localidades e fallback suportados: https://ui5.sap.com/#/topic/ec753bc539d748f689e3ac814e129563

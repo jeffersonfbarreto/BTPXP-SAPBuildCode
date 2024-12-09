@@ -1,18 +1,17 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex6)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex6/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
 
-# Exercise 6 - Filtering With the IconTabBar
+# Exercício 6 - Filtrando com o IconTabBar
 
-As your customer needs the best overview to make decisions quickly, you will give them an option to narrow down the list of sensors based on the current sensor temperature.
+Como seu cliente precisa da melhor visão geral para tomar decisões rapidamente, você dará a ele uma opção para restringir a lista de sensores com base na temperatura atual do sensor.
 
-## Exercise 6.1 - Add new IconTabFilters to the Sensors.view.xml
+## Exercício 6.1 - Adicione novos IconTabFilters ao Sensors.view.xml
 
-For this, you enhance your `sap.m.IconTabBar` control.
+Para isso, você aprimora seu controle `sap.m.IconTabBar`.
 
-1. Open `sensormanager/webapp/view/Sensors.view.xml`.
+1. Abra `sensormanager/webapp/view/Sensors.view.xml`.
 
-2. Insert the `<items>` aggregation with `sap.m.IconTabFilter` elements to the beginning of the `sap.m.IconTabBar` control, before the `<content>` (actually the position does not matter, but `<items>` must be a sibling on the same level as `<content>`). The `IconTabFilter` elements will be visible as icons above the bar, so the user can click them to filter the list.
-
+2. Insira a agregação `<items>` com elementos `sap.m.IconTabFilter` no início do controle `sap.m.IconTabBar`, antes do `<content>` (na verdade, a posição não importa, mas `<items>` deve ser um irmão no mesmo nível que `<content>`). Os elementos `IconTabFilter` ficarão visíveis como ícones acima da barra, para que o usuário possa clicar neles para filtrar a lista.
 ###### sensormanager/webapp/view/Sensors.view.xml
 
 ```xml
@@ -28,17 +27,17 @@ For this, you enhance your `sap.m.IconTabBar` control.
                 ...
 ```
 
-3. Let's see if your UI5 application now displays the newly introduced `sap.m.IconTabFilter` elements! Switch to the browser tab with the opened application preview (reload/relaunch if needed).
+3. Vamos ver se seu aplicativo UI5 agora exibe os elementos `sap.m.IconTabFilter` recém-introduzidos! Mude para a aba do navegador com a pré-visualização do aplicativo aberta (recarregue/reinicie se necessário).
 
-![](images/06_01_0010.png)
+![](images/BTP_06_0010.png)
 
-## Exercise 6.2 - Implement the Filtering
+## Exercício 6.2 - Implementar a filtragem
 
-In the previous section you've added all necessary UI controls. Next, you'll implement the filtering logic.
+Na seção anterior, você adicionou todos os controles de IU necessários. Em seguida, você implementará a lógica de filtragem.
 
-1. Open `sensormanager/webapp/controller/Sensors.controller.ts`.
+1. Abra `sensormanager/webapp/controller/Sensors.controller.ts`.
 
-2. Implement the `onFilterSelect` function for filtering the sensor list items by checking their `status` property. You'll also make use of the previously defined threshold and use some filter settings to narrow down the result. `LT` for example means "less than". Enter the following into the class body, after the end of the `getSensorModel` method.
+2. Implemente a função `onFilterSelect` para filtrar os itens da lista de sensores verificando sua propriedade `status`. Você também fará uso do limite definido anteriormente e usará algumas configurações de filtro para restringir o resultado. `LT`, por exemplo, significa "menor que". Insira o seguinte no corpo da classe, após o final do método `getSensorModel`.
 
 ###### sensormanager/webapp/controller/Sensors.controller.ts
 
@@ -64,51 +63,51 @@ In the previous section you've added all necessary UI controls. Next, you'll imp
     }
 ```
 
-> #### 🧑‍🎓 Explanation
-> You can again make use of the *Quick Fix...* functionality on hover to add the missing imports. Note that for `Filter` there are three modules available that will be recommended when triggering the > Quick Fix on `Filter`:
+> #### 🧑‍🎓 Explicação
+> Você pode novamente fazer uso da funcionalidade *Quick Fix...* ao passar o mouse para adicionar as importações ausentes. Observe que para `Filter` há três módulos disponíveis que serão recomendados ao acionar o > Quick Fix em `Filter`:
 > - `sap/ui/model/Filter`
 > - `sap/ui/model/odata/Filter`
 > - `sap/ui/export/util/Filter`
 >
->When triggering the Quick Fix on other missing modules and selecting "Add all missing imports", then one of them will be added. In any case, make sure the `sap/ui/model/Filter` module is imported, as this application is not using an OData model.
+>Ao acionar o Quick Fix em outros módulos ausentes e selecionar "Add all missing imports", um deles será adicionado. Em qualquer caso, certifique-se de que o módulo `sap/ui/model/Filter` seja importado, pois este aplicativo não está usando um modelo OData.
 
-> #### 💡 Hint
-> Try typing the last line of this code block manually: `listBinding.filter(this.statusFilters);`
+> #### 💡 Dica
+> Tente digitar a última linha deste bloco de código manualmente: `listBinding.filter(this.statusFilters);`
 >
-> Doing so, another advantage of TypeScript can be seen here, as there is type-ahead available, not only for variable names like `listBinding`, but also for available methods on the given variable type:
+> Fazendo isso, outra vantagem do TypeScript pode ser vista aqui, pois há digitação antecipada disponível, não apenas para nomes de variáveis ​​como `listBinding`, mas também para métodos disponíveis no tipo de variável fornecido:
 >
-![](images/06_02_0010.png)
+![](images/BTP_06_0020.png)
 >
-> There is also direct access to the documentation while you are typing, e.g. for the method parameters:
+> Também há acesso direto à documentação enquanto você digita, por exemplo, para os parâmetros do método:
 >
-![](images/06_02_0020.png)
+![](images/BTP_06_0030.png)
 
-## Exercise 6.3 - Assign the Filtering to the IconTabBar
+## Exercício 6.3 - Atribuir a filtragem ao IconTabBar
 
-Next, you need to assign the filtering function to the `select` event of the `sap.m.IconTabBar`.
+Em seguida, você precisa atribuir a função de filtragem ao evento `select` do `sap.m.IconTabBar`.
 
-1. Open `sensormanager/webapp/view/Sensors.view.xml`.
+1. Abra `sensormanager/webapp/view/Sensors.view.xml`.
 
-2. Bind the `onFilterSelect` function to the `select` event of the `IconTabBar`. Whenever one of the `sap.m.IconTabFilter` elements is clicked, this function will be called.
-
+2. Vincule a função `onFilterSelect` ao evento `select` do `IconTabBar`. Sempre que um dos elementos `sap.m.IconTabFilter` for clicado, esta função será chamada.
+   
 ###### sensormanager/webapp/view/Sensors.view.xml
 
 ```xml
             <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding">
 ```
 
-3. Let's see if your UI5 application is now able to filter the sensor data correctly. Switch to the browser tab with the opened application preview and reload the page. Click the *Too Hot* icon. Only sensors with too high a temperature are displayed.
+3. Vamos ver se seu aplicativo UI5 agora consegue filtrar os dados do sensor corretamente. Mude para a aba do navegador com a pré-visualização do aplicativo aberta e recarregue a página. Clique no ícone *Too Hot*. Somente sensores com temperatura muito alta são exibidos.
 
-![](images/06_03_0010.png)
+![](images/BTP_06_0040.png)
 
-## Summary
+## Resumo
 
-Well done! You've successfully enhanced your sensor manager application by adding an IconTabBar for filtering sensor data based on temperature. This new feature will enable quick and efficient decision-making for your users.
+Muito bem! Você aprimorou com sucesso seu aplicativo de gerenciamento de sensores adicionando um IconTabBar para filtrar dados de sensores com base na temperatura. Este novo recurso permitirá uma tomada de decisão rápida e eficiente para seus usuários.
 
-From the tutorial perspective, you have learned how displayed data can be filtered, how this filtering can be triggered by the user, and how TypeScript helps coding with code assist/autocomplete and showing the respective documentation in-place.
+Da perspectiva do tutorial, você aprendeu como os dados exibidos podem ser filtrados, como essa filtragem pode ser acionada pelo usuário e como o TypeScript ajuda na codificação com assistência de código/preenchimento automático e mostra a respectiva documentação no local.
 
-Keep up the good work and continue to [Exercise 7 - Fragment containing a Dialog](../ex7/README.md)!
+Continue com o bom trabalho e continue para [Exercício 7 - Fragmento contendo um diálogo](../ex7/README.md)!
 
-## Further Information
+## Mais informações
 
-* Model Filter in UI5: https://ui5.sap.com/#/topic/5295470d7eee46c1898ee46c1b9ad763
+* Filtro de modelo na UI5: https://ui5.sap.com/#/topic/5295470d7eee46c1898ee46c1b9ad763

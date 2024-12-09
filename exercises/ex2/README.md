@@ -1,32 +1,31 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex2)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex2/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
 
-# Exercise 2 - Add First Content
+# Exercício 2 - Adicionar primeiro conteúdo
 
-In this exercise you'll add some content to your application. A UI5 view showing multiple temperature sensors will be the first part of your app.
+Neste exercício, você adicionará algum conteúdo ao seu aplicativo. Uma exibição da UI5 mostrando vários sensores de temperatura será a primeira parte do seu aplicativo.
 
-## Exercise 2.1 - Understand XML Views
+## Exercício 2.1 – Entender as exibições XML
 
-After completing these steps you'll have written your first UI5 view. But before creating content, let's take a look at the pre-created views - first at the application's root view located under `sensormanager/webapp/view/App.view.xml`. It only contains a single `App` control, that's a special UI5 control, which can be used to display and navigate between different pages. We'll see how pages are added and how this navigating works, when we have a look at the *routing* later on.
+Depois de concluir essas etapas, você terá escrito sua primeira exibição de UI5. Mas antes de criar conteúdo, vamos dar uma olhada nas visualizações pré-criadas - primeiro na view raiz do aplicativo localizada em `sensormanager/webapp/view/App.view.xml`. Ele contém apenas um único controle `App`, que é um controle UI5 especial, que pode ser usado para exibir e navegar entre páginas diferentes. Veremos como as páginas são adicionadas e como essa navegação funciona, quando dermos uma olhada no *routing* mais tarde.
 
 ```xml
 <mvc:View controllerName="keepcool.sensormanager.controller.App"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <App id="app">
     </App>
 </mvc:View>
 ```
 
-The second view, `sensormanager/webapp/view/Sensors.view.xml`, contains a single `Page` control with empty `content`:
+A segunda view, `sensormanager/webapp/view/Sensors.view.xml`, contém um único controle `Page` com conteúdo vazio:
 
 ```xml
 <mvc:View controllerName="keepcool.sensormanager.controller.Sensors"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <content />
     </Page>
 </mvc:View>
 

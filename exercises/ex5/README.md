@@ -1,15 +1,15 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex5)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex5/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
 
-# Exercise 5 - Improve Visualization
+# Exercício 5 - Melhore a visualização
 
-You achieved a lot in the previous exercises. Now it's time to dress up your UI5 application with better visuals!
+Você conseguiu muito nos exercícios anteriores. Agora é hora de enfeitar seu aplicativo UI5 com visuais melhores!
 
-## Exercise 5.1 - Enhance Sensors.view.xml
+## Exercício 5.1 - Melhore Sensors.view.xml
 
-To give the customer the best possible overview, add some color to your application. Introduce a new layout and structure for the items, and also show an `sap.ui.core.Icon` there.
+Para dar ao cliente a melhor visão geral possível, adicione um pouco de cor ao seu aplicativo. Apresente um novo layout e estrutura para os itens e também mostre um `sap.ui.core.Icon` lá.
 
-1. Open `Sensors.view.xml` and add the xml namespace `xmlns:core="sap.ui.core"` to the view to have the `sap.ui.core.Icon` available.
+1. Abra `Sensors.view.xml` e adicione o namespace xml `xmlns:core="sap.ui.core"` à visualização para ter o `sap.ui.core.Icon` disponível.
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 
@@ -24,7 +24,7 @@ To give the customer the best possible overview, add some color to your applicat
     displayBlock="true">
 ```
 
-2. Add a temperature icon as well as a title, a number and some layouting to the `sap.f.GridListItem` (not "GridList"!) control.
+2. Adicione um ícone de temperatura, bem como um título, um número e algum layout ao controle `sap.f.GridListItem` (não "GridList"!).
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 
@@ -46,17 +46,17 @@ To give the customer the best possible overview, add some color to your applicat
                                 </HBox>
                             </f:GridListItem>
 ```
-> 🧑‍🎓 `sapUiSmallMargin` is again a predefined CSS class, this time adding spacing *around* controls. `sap.m.HBox`and `sap.m.VBox` are helper controls for layouting your application by arranging content horizontally and vertically.
+> 🧑‍🎓 `sapUiSmallMargin` é novamente uma classe CSS predefinida, desta vez adicionando espaçamento *ao redor* dos controles. `sap.m.HBox` e `sap.m.VBox` são controles auxiliares para layout do seu aplicativo, organizando o conteúdo horizontal e verticalmente.
 
-Let's take a look at the application and the changes in the item layout of the `GridList` control:
+Vamos dar uma olhada no aplicativo e nas mudanças no layout do item do controle `GridList`:
 
 ![](images/05_01_0010.png)
 
-> 💡 Note that the temperature is not displayed correctly yet, as the formatter doing the Celsius-to-Fahrenheit conversion will only be added later in this exercise.
+> 💡 Observe que a temperatura ainda não está exibida corretamente, pois o formatador que faz a conversão de Celsius para Fahrenheit só será adicionado mais tarde neste exercício.
 
-## Exercise 5.2 - Add Content to Sensors.controller.ts
+## Exercício 5.2 - Adicionar conteúdo a Sensors.controller.ts
 
-In this exercise you'll enhance your application with some additional controller coding.
+Neste exercício, você aprimorará seu aplicativo com alguma codificação de controlador adicional.
 
 > #### 🧑‍🎓 Explanation
 > This tutorial uses **TypeScript** instead of JavaScript and this exercise is the first one where you actually write such code, hence a brief introduction:

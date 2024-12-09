@@ -32,27 +32,27 @@ A segunda view, `sensormanager/webapp/view/Sensors.view.xml`, contém um único 
 ```
 
 > #### 🧑‍🎓 Explanation
-> XML views are the recommended (but not only) way in SAPUI5 to define the user interface structure. The tags with capital letters represent UI5 controls - user interface elements either provided as part of UI5 or created as custom controls in application code. UI5 comes with hundreds of such controls from simple buttons to complex animated layouts or things like tables and charts.
+> As views XML são a maneira recomendada (mas não a única) no SAPUI5 para definir a estrutura da interface do usuário. As tags com letras maiúsculas representam controles UI5 - elementos da interface do usuário fornecidos como parte do UI5 ou criados como controles personalizados no código do aplicativo. O UI5 vem com centenas desses controles, de botões simples a layouts animados complexos ou coisas como tabelas e gráficos.
 >
-> Container controls like `App` and `Page` have the ability to embed nested child controls, which is nicely reflected in the XML structure. Sometimes these containers have different areas ("aggregations") for child controls. Those are represented as all-lowercase tags like `<content>` and define into which such area the contained child elements should go.
+> Controles de contêiner como `App` e `Page` têm a capacidade de incorporar controles filho aninhados, o que é bem refletido na estrutura XML. Às vezes, esses contêineres têm áreas diferentes ("agregações") para controles filho. Elas são representadas como tags todas em minúsculas como `<content>` e definem em qual área os elementos filho contidos devem ir.
 >
-> The attributes of the XML tags like `id` and `title` are used to declaratively assign properties, event handlers etc.
+> Os atributos das tags XML como `id` e `title` são usados ​​para atribuir propriedades declarativamente, manipuladores de eventos etc.
 >
-> As UI5 controls are developed inside different "libraries", XML namespaces are used to properly indicate from which library (and sub-folder inside a library) each control should come. E.g. the default namespace in this XML view is "sap.m". This means all XML tags without namespace like `<Page>` represent controls from the `sap.m` library. The root tag `<mvc:View>`, on the other hand, is the `View` control inside the `mvc` folder in the `sap.ui.core` library.
+> Como os controles UI5 são desenvolvidos dentro de diferentes "bibliotecas", os namespaces XML são usados ​​para indicar corretamente de qual biblioteca (e subpasta dentro de uma biblioteca) cada controle deve vir. Por exemplo, o namespace padrão nesta visualização XML é "sap.m". Isso significa que todas as tags XML sem namespace como `<Page>` representam controles da biblioteca sap.m. A tag raiz `<mvc:View>`, por outro lado, é o controle `View` dentro da pasta `mvc` na biblioteca `sap.ui.core`.
 >
-> At runtime, UI5 instantiates the respective controls, assigns the properties, puts the controls together into a nested tree structure, and makes them create the actual HTML displayed by the browser.
+> No tempo de execução, o UI5 instancia os respectivos controles, atribui as propriedades, coloca os controles juntos em uma estrutura de árvore aninhada e os faz criar o HTML real exibido pelo navegador.
 
-## Exercise 2.2 - Add Content to Sensors.view.xml
+## Exercício 2.2 – Adicionar conteúdo ao Sensors.view.xml
 
-Now let's finally add some content!
+Agora vamos finalmente adicionar algum conteúdo!
 
-1. Add an empty `sap.m.IconTabBar` to `Sensors.view.xml` by replacing its content as follows:
+1. Adicione um `sap.m.IconTabBar` vazio a `Sensors.view.xml` substituindo seu conteúdo da seguinte forma:
 
 ###### sensormanager/webapp/view/Sensors.view.xml
 
 ```xml
 <mvc:View controllerName="keepcool.sensormanager.controller.Sensors"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content>
@@ -60,27 +60,27 @@ Now let's finally add some content!
                 <content>
                 </content>
             </IconTabBar>
-        </content>
+        </content>    
     </Page>
 </mvc:View>
 ```
 
-> #### 🧑‍🎓 Explanation
-> The `<content>` aggregation of the `<Page>` now contains an `<IconTabBar>` control. The attribute `class="sapUiResponsiveContentPadding"` means that the CSS class `sapUiResponsiveContentPadding` shall be written to the HTML. This is one of the predefined UI5 CSS classes and adds some padding around the content of the IconTabBar (we will add this content soon). This padding is *responsive*, which means it depends on the screen/window size and will be smaller when the available space is limited.
+> #### 🧑‍🎓 Explicação
+> A agregação `<content>` de `<Page>` agora contém um controle `<IconTabBar>`. O atributo `class="sapUiResponsiveContentPadding"` significa que a classe CSS `sapUiResponsiveContentPadding` deve ser escrita no HTML. Esta é uma das classes CSS predefinidas do UI5 e adiciona algum preenchimento ao redor do conteúdo do IconTabBar (adicionaremos este conteúdo em breve). Este preenchimento é *responsivo*, o que significa que depende do tamanho da tela/janela e será menor quando o espaço disponível for limitado.
 
 
-## Exercise 2.3 - Add Dependencies
+## Exercício 2.3 – Adicionar dependências
 
-In addition to the main UI5 library `sap.m`, you will use other control libraries like `sap.ui.layout` in your application. The central point for configuring your UI5 application is the `manifest.json` file, which is located at `sensormanager/webapp/manifest.json`.
+Além da biblioteca principal do UI5 `sap.m`, você usará outras bibliotecas de controle como `sap.ui.layout` em seu aplicativo. O ponto central para configurar seu aplicativo UI5 é o arquivo `manifest.json`, que está localizado em `sensormanager/webapp/manifest.json`.
 
-1. You can either locate this file in the File Explorer on the left-hand side or directly access `manifest.json` using the link in the *Application Info* page. If you have closed the *Application Info* page again or not opened it in the previous exercise, you can open it by using the command `Fiori: Open Application Info` from command palette (`CTRL + Shift + P` on Windows/Linux, `Cmd + Shift + P` on Mac).
+1. Você pode localizar este arquivo no File Explorer no lado esquerdo ou acessar diretamente `manifest.json` usando o link na página *Application Info*. Se você fechou a página *Application Info* novamente ou não a abriu no exercício anterior, você pode abri-la usando o comando `Fiori: Open Application Info` da paleta de comandos (`CTRL + Shift + P` no Windows/Linux, `Cmd + Shift + P` no Mac).
 
 ![](images/02_02_0030.png)
 
 ![](images/02_02_0040.png)
 
-2. In `manifest.json`, go to the section `sap.ui5` (CAUTION: NOT the section `sap.ui`!).
-3. Add two libraries in the `dependencies/libs` section. UI5 will take care of loading all the libraries listed here when your app is started.
+2. Em `manifest.json`, vá para a seção `sap.ui5` (CUIDADO: NÃO a seção `sap.ui`!).
+3. Adicione duas bibliotecas na seção `dependencies/libs`. O UI5 cuidará de carregar todas as bibliotecas listadas aqui quando seu aplicativo for iniciado.
 
 ###### sensormanager/webapp/manifest.json
 
@@ -94,22 +94,22 @@ In addition to the main UI5 library `sap.m`, you will use other control librarie
             }
         },
 ```
->💡 Don't forget adding a comma after the previous entry when you add these two!
+>💡 Não se esqueça de adicionar uma vírgula após a entrada anterior quando adicionar esses dois!
 
 
 
-To see the result of what you did, open the browser tab with the application preview (or press the top-right green "play" arrow again in case you closed the tab). The application is automatically being updated whenever you do code changes. You cannot see the `sap.m.IconTabBar` very well yet, as it is still empty. But there is an additional line now and you will soon see much more!
+Para ver o resultado do que você fez, abra a aba do navegador com a pré-visualização do aplicativo (ou pressione a seta verde "play" no canto superior direito novamente, caso tenha fechado a aba). O aplicativo está sendo atualizado automaticamente sempre que você faz alterações no código. Você não consegue ver o `sap.m.IconTabBar` muito bem ainda, pois ele ainda está vazio. Mas há uma linha adicional agora e você verá muito mais em breve!
 
 ![](images/02_02_0050.png)
 
-## Summary
+## Resumo
 
-Great job! You've successfully added content to your application and added further libraries to your application's `manifest.json` file for future use. Keep up the good work as you continue to [Exercise 3 - Show Sensor Content](../ex3/README.md).
+Ótimo trabalho! Você adicionou conteúdo ao seu aplicativo com sucesso e adicionou mais bibliotecas ao arquivo `manifest.json` do seu aplicativo para uso futuro. Continue com o bom trabalho enquanto continua com [Exercício 3 - Mostrar conteúdo do sensor](../ex3/README.md).
 
 
-## Further Information
+## Mais informações
 
-* UI5 SDK (all the documentation): https://ui5.sap.com/
-* Views in UI5: https://ui5.sap.com/#/topic/91f27e3e6f4d1014b6dd926db0e91070
-* Using Container Content Padding CSS Classes: https://ui5.sap.com/#/topic/c71f6df62dae47ca8284310a6f5fc80a
-* Theming: https://experience.sap.com/internal/fiori-design-web/theming/
+* UI5 SDK (toda a documentação): https://ui5.sap.com/
+* Views em UI5: https://ui5.sap.com/#/topic/91f27e3e6f4d1014b6dd926db0e91070
+* Usando classes CSS de preenchimento de conteúdo de contêiner: https://ui5.sap.com/#/topic/c71f6df62dae47ca8284310a6f5fc80a
+* Temas: https://experience.sap.com/internal/fiori-design-web/theming/

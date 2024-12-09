@@ -75,9 +75,9 @@ Além da biblioteca principal do UI5 `sap.m`, você usará outras bibliotecas de
 
 1. Você pode localizar este arquivo no File Explorer no lado esquerdo ou acessar diretamente `manifest.json` usando o link na página *Application Info*. Se você fechou a página *Application Info* novamente ou não a abriu no exercício anterior, você pode abri-la usando o comando `Fiori: Open Application Info` da paleta de comandos (`CTRL + Shift + P` no Windows/Linux, `Cmd + Shift + P` no Mac).
 
-![](images/02_02_0030.png)
+![](images/BTP_02_0010.png)
 
-![](images/02_02_0040.png)
+![](images/BTP_02_0020.png)
 
 2. Em `manifest.json`, vá para a seção `sap.ui5` (CUIDADO: NÃO a seção `sap.ui`!).
 3. Adicione duas bibliotecas na seção `dependencies/libs`. O UI5 cuidará de carregar todas as bibliotecas listadas aqui quando seu aplicativo for iniciado.
@@ -100,7 +100,7 @@ Além da biblioteca principal do UI5 `sap.m`, você usará outras bibliotecas de
 
 Para ver o resultado do que você fez, abra a aba do navegador com a pré-visualização do aplicativo (ou pressione a seta verde "play" no canto superior direito novamente, caso tenha fechado a aba). O aplicativo está sendo atualizado automaticamente sempre que você faz alterações no código. Você não consegue ver o `sap.m.IconTabBar` muito bem ainda, pois ele ainda está vazio. Mas há uma linha adicional agora e você verá muito mais em breve!
 
-![](images/02_02_0050.png)
+![](images/BTP_02_0030.png)
 
 ## Resumo
 

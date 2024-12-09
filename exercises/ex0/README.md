@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/57e6cdc4-b31d-42df-9fc1-5c89d1b4c579)# Exercício 0 - Introdução
+# Exercício 0 - Introdução
 
 Neste exercício, você será orientado sobre como acessar sua conta do SAP Business Application Studio, configurar um espaço de desenvolvimento e obter uma rápida introdução às suas funcionalidades.
 

@@ -1,24 +1,24 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex7)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex7/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
-# Exercise 7 - Utilizing Fragments and Dialogs
+# Exercício 7 - Utilizando Fragmentos e Diálogos
 
-For a quick overview of all current customers, let's offer a dialog. To maintain separation of concerns, let's encapsulate this dialog's content within a Fragment. This enables potential reuse elsewhere.
+Para uma rápida visão geral de todos os clientes atuais, vamos oferecer um diálogo. Para manter a separação de preocupações, vamos encapsular o conteúdo deste diálogo dentro de um Fragmento. Isso permite potencial reutilização em outro lugar.
 
-## Exercise 7.1 - Generate a New Fragment Definition
+## Exercício 7.1 - Gerar uma nova definição de fragmento
 
-A dialog presents an ideal scenario for utilizing a `sap.ui.core.Fragment`. This UI5 artifact aids in modularizing your code into smaller, reusable components.
+Um diálogo apresenta um cenário ideal para utilizar um `sap.ui.core.Fragment`. Este artefato UI5 auxilia na modularização do seu código em componentes menores e reutilizáveis.
 
-1. Navigate to the folder `sensormanager/webapp/view/`.
+1. Navegue até a pasta `sensormanager/webapp/view/`.
 
-2. Right-click on the `view` folder and choose `New File...`.
+2. Clique com o botão direito do mouse na pasta `view` e escolha `New File...`.
 
-![](images/07_01_0010.png)
+![](images/BTP_07_0010.png)
 
-3. Specify `CustomerDialog.fragment.xml` as the file name.
+3. Especifique `CustomerDialog.fragment.xml` como o nome do arquivo.
 
-![](images/07_01_0020.png)
+![](images/BTP_07_0020.png)
 
-4. Copy and paste the following content into the newly created `CustomerDialog.fragment.xml`. This will define a `sap.m.Dialog`, providing functionality to assist users in viewing their assigned icehouse clients.
+4. Copie e cole o seguinte conteúdo no `CustomerDialog.fragment.xml`. Isso definirá um `sap.m.Dialog`, fornecendo funcionalidade para auxiliar os usuários a visualizar seus clientes icehouse atribuídos.
 
 ###### sensormanager/webapp/view/CustomerDialog.fragment.xml
 
@@ -48,13 +48,13 @@ A dialog presents an ideal scenario for utilizing a `sap.ui.core.Fragment`. This
 </core:FragmentDefinition>
 ```
 
-## Exercise 7.2 - Implement Dialog Opening Logic
+## Exercício 7.2 - Implementar lógica de abertura de diálogo
 
-After defining the dialog, you need to implement the code that will trigger its opening.
+Após definir o diálogo, você precisa implementar o código que acionará sua abertura.
 
-1. Open `sensormanager/webapp/controller/Sensors.controller.ts`.
+1. Abra `sensormanager/webapp/controller/Sensors.controller.ts`.
 
-2. Within the class body, implement the `onCustomerInfoPress` function to open the dialog. You already know how to apply the *Quick Fix* to add any missing imports. Make sure that the Dialog is imported from `"sap/m/Dialog"` (there are more Dialogs in UI5)!
+2. Dentro do corpo da classe, implemente a função `onCustomerInfoPress` para abrir o diálogo. Você já sabe como aplicar o *Quick Fix* para adicionar quaisquer importações ausentes. Certifique-se de que o Dialog seja importado de `"sap/m/Dialog"` (há mais Dialogs na UI5)!
 
 ###### sensormanager/webapp/controller/Sensors.controller.ts
 
@@ -71,20 +71,20 @@ After defining the dialog, you need to implement the code that will trigger its 
     }
 ```
 
-> 🧑‍🎓 The example above demonstrates a form of lazy and conditional instantiation. The fragment content is loaded only when the dialog does not yet exist. The `??=` operator checks if the `dialog` variable has a truthy value. If so, the statement after the `??=` operator is not executed. If the `dialog` has a falsy value, the action after the `??=` is executed and the resulting value is assigned to the `dialog`.
+> 🧑‍🎓 O exemplo acima demonstra uma forma de instanciação preguiçosa e condicional. O conteúdo do fragmento é carregado somente quando o diálogo ainda não existe. O operador `??=` verifica se a variável `dialog` tem um valor verdadeiro. Se sim, a declaração após o operador `??=` não é executada. Se o `dialog` tiver um valor falso, a ação após o `??=` é executada e o valor resultante é atribuído ao `dialog`.
 >
-> Because the fragment possibly needs to be loaded from the server (asynchronously), this resulting value is not directly the Dialog itself, but a [*Promise*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), a JavaScript construct that helps dealing with asynchronous code. This Promise *resolves* with the Dialog defined in the Fragment.
+> Como o fragmento possivelmente precisa ser carregado do servidor (de forma assíncrona), esse valor resultante não é diretamente o próprio Dialog, mas uma [*Promise*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), uma construção JavaScript que ajuda a lidar com código assíncrono. Essa Promise *resolve* com o Dialog definido no Fragment.
 >
-> The `loadFragment` method available on the controller instance assigns the fragment content as a "dependent" to the view, so all bound models available on the view are also available for the fragment content. Furthermore UI5 takes care to clean up the fragment content when the view is destroyed.
+> O método `loadFragment` disponível na instância do controlador atribui o conteúdo do fragmento como um "dependente" para a visualização, então todos os modelos vinculados disponíveis na visualização também estão disponíveis para o conteúdo do fragmento. Além disso, a UI5 toma cuidado para limpar o conteúdo do fragmento quando a visualização é destruída.
+> 
+## Exercício 7.3 - Insira o botão de abertura de diálogo
 
-## Exercise 7.3 - Incorporate a Dialog Opening Button
+Após implementar a lógica de abertura de diálogo, você precisa vincular essa lógica a um controle.
 
-After implementing the dialog opening logic, you need to link this logic to a control.
+1. Abra `sensormanager/webapp/view/Sensors.view.xml`.
 
-1. Open `sensormanager/webapp/view/Sensors.view.xml`.
-
-2. Add a new button to the page header and bind its `press` event to the newly created `onCustomerInfoPress` function. You can do this by inserting the `<headerContent>` aggregation before (or after) the `<content>` of the `Page` control.
-
+2. Adicione um novo botão ao cabeçalho da página e vincule seu evento `press` à função `onCustomerInfoPress` que foi criada. Você pode fazer isso inserindo a agregação `<headerContent>` antes (ou depois) do `<content>` do controle `Page`.
+   
 ###### sensormanager/webapp/view/Sensors.view.xml
 
 ```xml
@@ -96,16 +96,16 @@ After implementing the dialog opening logic, you need to link this logic to a co
         ...
 ```
 
-3. Switch to the application preview tab in your browser and refresh the page to observe the changes to your application's user interface. Click the "info" button in the upper right corner of the page to open the dialog. You cannot close the Dialog yet, though.
+3. Mude para a aba de visualização do aplicativo no seu navegador e atualize a página para observar as alterações na interface do usuário do seu aplicativo. Clique no botão "info" no canto superior direito da página para abrir o diálogo. Você não pode fechar o diálogo ainda.
 
-![](images/07_03_0010.png)
+![](images/BTP_07_0030.png)
 
-## Exercise 7.4 - Implement Dialog Closing Mechanism
+## Exercício 7.4 - Implementação de logica para fechamento da caixa de diálogo
 
-1. Open `sensormanager/webapp/controller/Sensors.controller.ts`.
+1. Abra `sensormanager/webapp/controller/Sensors.controller.ts`.
 
-2. Within the class body, implement the `onCustomerInfoClose` function to close the dialog.
-
+2. Dentro do corpo da classe, implemente a função `onCustomerInfoClose` para fechar o diálogo.
+   
 ###### sensormanager/webapp/controller/Sensors.controller.ts
 
 ```js
@@ -118,17 +118,17 @@ After implementing the dialog opening logic, you need to link this logic to a co
     }
 ```
 
-> 🧑‍🎓 In the variable `this.dialog` not the Dialog itself is stored, but the Promise resolving with the Dialog. Hence calling `.then(...)` on it gives the Dialog. As this method is normally only triggered from within the Dialog, which can only be shown when the Dialog fragment is loaded successfully, the `catch(...)` clause is probably never executed (it would be triggered when the Promise loading the fragment fails) - but better be safe than sorry, these preconditions in the surrounding code might change.
+> 🧑‍🎓 Na variável `this.dialog` não é armazenado o Dialog em si, mas a Promise que resolve com o Dialog. Portanto, chamar `.then(...)` nele fornece o Dialog. Como esse método normalmente só é acionado de dentro do Dialog, que só pode ser exibido quando o fragmento do Dialog é carregado com sucesso, a cláusula `catch(...)` provavelmente nunca é executada (ela seria acionada quando o Promise que carrega o fragmento falha) - mas é melhor prevenir do que remediar, essas pré-condições no código ao redor podem mudar.
 
-3. Switch to the application preview tab in your browser to observe the changes to your application's user interface. Click the info button in the upper right corner to open the dialog, then test the closing functionality.
+3. Mude para a guia de visualização do aplicativo no seu navegador para observar as alterações na interface do usuário do seu aplicativo. Clique no botão de informações no canto superior direito para abrir o diálogo e, em seguida, teste a funcionalidade de fechamento.
 
-![](images/07_04_0010.png)
+![](images/BTP_07_0040.png)
 
-## Summary
-You've done a fantastic job! In this exercise, you've successfully created a reusable fragment that encapsulates a dialog for displaying customer information in your application. You've also implemented the logic to open and close the dialog, and connected it to a button on the user interface. You're making great strides in modularizing your code and enhancing the user experience.
+## Resumo
+Você fez um trabalho fantástico! Neste exercício, você criou com sucesso um fragmento reutilizável que encapsula um diálogo para exibir informações do cliente em seu aplicativo. Você também implementou a lógica para abrir e fechar o diálogo e conectou-o a um botão na interface do usuário. Você está fazendo grandes avanços na modularização do seu código e melhorando a experiência do usuário.
 
-Keep up the good work in [Exercise 8 - Second View with Navigation](../ex8/README.md)!
+Continue o bom trabalho no [Exercício 8 - Segunda visualização com navegação](../ex8/README.md)!
 
-## Further Information
-* Usage of Fragments in UI5: https://ui5.sap.com/#/topic/36a5b130076e4b4aac2c27eebf324909
+## Mais informações
+* Uso de fragmentos na UI5: https://ui5.sap.com/#/topic/36a5b130076e4b4aac2c27eebf324909
 * `sap.m.Dialog`: https://ui5.sap.com/#/api/sap.m.Dialog

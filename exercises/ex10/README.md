@@ -1,62 +1,57 @@
-[![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](../../../../tree/code/ex11)
 
-# Exercise 10 - Deploy Your App to SAP BTP, Cloud Foundry runtime
+# Exercício 10 - Implante seu aplicativo no SAP BTP, tempo de execução do Cloud Foundry
 
-In this exercise you'll learn how easy it is to deploy your application directly from SAP Business Application Studio to the SAP BTP, Cloud Foundry runtime.
+Neste exercício, você aprenderá como é fácil implantar seu aplicativo diretamente do SAP Business Application Studio no SAP BTP, tempo de execução do Cloud Foundry.
 
-## Exercise 10.1 - Create Space in Cloud Foundry
+## Exercício 10.1 - Crie Space no Cloud Foundry
 
-First of all, you need to create the space in your Cloud Foundry environment to host your newly created UI5 application.
+Primeiro, você precisa criar o Space em seu ambiente do Cloud Foundry para hospedar seu aplicativo UI5 recém-criado.
 
-1. Open the SAP BTP Trial by opening *https://cockpit.hanatrial.ondemand.com/cockpit/#/home/trial* in a new browser tab and click *Go To Your Trial Account*.
-
+1. Abra o SAP BTP Trial abrindo *https://cockpit.hanatrial.ondemand.com/cockpit/#/home/trial* em uma nova guia do navegador e clique em *Go To Your Trial Account*.
 ![](images/11_01_0010.png)
 
-2. You're redirected to your personal SAP BTP Cockpit where your subaccounts are listed. Click on the *trial* subaccount.
+2. Você será redirecionado para seu SAP BTP Cockpit pessoal, onde suas subaccounts estão listadas. Clique na subaccount *trial*.
 
 ![](images/11_01_0020.png)
 
-3. Open *Spaces* below the menu item *Cloud Foundry* (expand *Cloud Foundry* if needed). Until now, no space was created by you within this tutorial (but a *dev* space might already exist). Click *Create Space*.
+3. Abra *Spaces* abaixo do item de menu *Cloud Foundry* (expanda *Cloud Foundry* se necessário). Até agora, nenhum espaço foi criado por você dentro deste tutorial (mas um espaço *dev* pode já existir). Clique em *Create Space*.
 
 ![](images/11_01_0030.png)
 
-4. In the popup, enter the space name, e.g. *ui5-apps* and leave the role selection as-is. Click *Create*.
+4. No pop-up, insira o nome do Space, por exemplo, *ui5-apps* e deixe a seleção de função como está. Clique em *Create*.
 
 ![](images/11_01_0040.png)
 
-5. The newly created space is displayed.
+5. O Space recém-criado é exibido.
 
 ![](images/11_01_0050.png)
 
-6. Do NOT click on the space name (this would enter the space, which we do not need right now). If you did, click on the "trial" subaccount above the content area to navigate up again.
+6. NÃO clique no nome do Space (isso entraria no Space, do qual não precisamos agora). Se você fez isso, clique na subconta "trial" acima da área de conteúdo para navegar para cima novamente.
 
-## Exercise 10.2 - Subscribe to the SAP Build Work Zone Service
+## Exercício 10.2 - Assinar o SAP Build Work Zone Service
 
-To be able to display deployed UI5 applications we need the "SAP Build Work Zone, standard edition" service (formerly known as "Launchpad Service") in our trial account.
+Para poder exibir aplicativos UI5 implantados, precisamos do serviço "SAP Build Work Zone, standard edition" (anteriormente conhecido como "Launchpad Service") em nossa conta de teste.
 
-1. To subscribe to it, click on *Service Marketplace* at the left-hand side below *Services* and search the "SAP Build Work Zone, standard edition" service.
+1. Para assinar, clique em *Service Marketplace* no lado esquerdo abaixo de *Services* e pesquise o serviço "SAP Build Work Zone, standard edition".
 
-2. Click on the "SAP Build Work Zone, standard edition" service tile and then on *Create* on the right hand side.
+2. Clique no bloco de serviço "SAP Build Work Zone, standard edition" e depois em *Create* no lado direito.
 
-![](images/11_02_0010_B.png)
+![](images/BTP_10_0010.png)
 
-3. In the empty dropdown list labelled "Plan", select "standard - Subscription" and click *Create*.
+3. Na lista suspensa vazia chamada "Plan", selecione "standard - Subscription" e clique em *Create*.
 
-
-![](images/11_02_0020_C.png)
+![](images/BTP_10_0020.png)
 
 4. Close the "Creation in Progress" popup. If you now click on *Instance and Subscriptions* you'll see that you have subscribed to the Launchpad Service.
 
+![](images/BTP_10_0030.png)
 
-![](images/11_02_0030_C.png)
+## Exercício 10.3 - Login no Cloud Foundry
 
+Agora você pode fazer login no seu ambiente Cloud Foundry diretamente do SAP Business Application Studio.
 
-## Exercise 10.3 - Login to Cloud Foundry
-
-Now you can login to your Cloud Foundry environment directly from SAP Business Application Studio.
-
-1. Open SAP Business Application Studio. Click the top-most button in the left sidebar (three horizontal lines), then on *View*, then select *Command Palette...*. (Alternatively press `CTRL + Shift + P` on Windows/Linux, `Cmd + Shift + P` on Mac.) Then start typing *CF: Login to cloud foundry* until you can see and click the respective entry.
-Now specify your user credentials and sign in.
+1. Abra o SAP Business Application Studio. Clique no botão mais alto na barra lateral esquerda (três linhas horizontais), depois em *Exibir* e selecione *Paleta de comandos...*. (Alternativamente, pressione `CTRL + Shift + P` no Windows/Linux, `Cmd + Shift + P` no Mac.) Em seguida, comece a digitar *CF: Login to cloud foundry* até que você possa ver e clicar na respectiva entrada.
+Agora especifique suas credenciais de usuário e faça login.
 
 ![](images/11_03_0005.png)
 

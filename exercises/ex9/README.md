@@ -1,17 +1,17 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex9)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex9/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
 
-# Exercise 9 - Enhancing Sensor Details with a Card
+# Exercício 9 - Aprimorando detalhes do sensor com um cartão
 
-In this exercise, you'll be augmenting the sensor status page with an `sap.f.Card` to present additional data about the sensor's status. You'll also implement some layouting with box controls and incorporate an `sap.f.cards.NumericHeader` to accurately represent the temperature.
+Neste exercício, você aumentará a página de status do sensor com um `sap.f.Card` para apresentar dados adicionais sobre o status do sensor. Você também implementará algum layout com controles de caixa e incorporará um `sap.f.cards.NumericHeader` para representar com precisão a temperatura.
 
-## Exercise 9.1 - Embedding a Card in SensorStatus.view.xml
+## Exercício 9.1 - Incorporando um cartão em SensorStatus.view.xml
 
-Let's start with spiffing up the `SensorStatus.view.xml` view.
+Vamos começar aprimorando a visualização `SensorStatus.view.xml`.
 
-1. Open `sensormanager/webapp/view/SensorStatus.view.xml`.
+1. Abra `sensormanager/webapp/view/SensorStatus.view.xml`.
 
-2. Add the `sap.f` and `sap.f.cards` libraries to `SensorStatus.view.xml`.
+2. Adicione as bibliotecas `sap.f` e `sap.f.cards` a `SensorStatus.view.xml`.
 
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 
@@ -25,7 +25,7 @@ Let's start with spiffing up the `SensorStatus.view.xml` view.
     xmlns:card="sap.f.cards">
 ```
 
-3. Embed an `sap.f.Card` with a card header into `SensorStatus.view.xml`. Add the customer name as the header title through data binding. To do this, replace the `<Page>...</Page>` with the following:
+3. Incorpore um `sap.f.Card` com um cabeçalho de cartão em `SensorStatus.view.xml`. Adicione o nome do cliente como o título do cabeçalho por meio de vinculação de dados. Para fazer isso, substitua `<Page>...</Page>` pelo seguinte:
 
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 
@@ -48,13 +48,13 @@ Let's start with spiffing up the `SensorStatus.view.xml` view.
     </Page>
 ```
 
-## Exercise 9.2 - Set the Data Context in SensorStatus.controller.ts
+## Exercício 9.2 - Defina o contexto de dados em SensorStatus.controller.ts
 
-To display the data for the chosen sensor in your card, you need to access the data provided by the Router for the navigation step and assign the correct binding context to the view. This way, the standard data binding will work with the data related to the chosen sensor.
+Para exibir os dados do sensor escolhido em seu cartão, você precisa acessar os dados fornecidos pelo roteador para a etapa de navegação e atribuir o contexto de vinculação correto à view. Dessa forma, a vinculação de dados padrão funcionará com os dados relacionados ao sensor escolhido.
 
-1. Open `sensormanager/webapp/controller/SensorStatus.controller.ts`.
+1. Abra `sensormanager/webapp/controller/SensorStatus.controller.ts`.
 
-2. Attach a callback function to the `routeMatched` event to fetch the passed sensor index and utilize it in the data binding path for the view. You also have to define a TypeScript interface for the parameter object, so that the type of index is clearly defined as `number`. As result, the file should look like this:
+2. Anexe uma função de retorno de chamada ao evento `routeMatched` para buscar o índice do sensor passado e utilizá-lo no caminho de vinculação de dados para a view. Você também precisa definir uma interface TypeScript para o objeto de parâmetro, para que o tipo de índice seja claramente definido como `number`. Como resultado, o arquivo deve ficar assim:
 
 ###### sensormanager/webapp/controller/SensorStatus.controller.ts
 
@@ -89,20 +89,20 @@ export default class SensorStatus extends Controller {
 }
 ```
 
-> #### 🧑‍🎓 Explanation
-> Within `onRouteMatched`, the first line sets the data binding context to the values filled below: the *model* is the WsensorModel" one holding the sensor data and the *path* inside the model from which the data is used is "/sensors/" plus the index of the clicked sensor, which is retrieved from the routing event. The resulting path (like e.g. `/sensors/8`) refers to the data of one specific sensor in the JSON data structure.
+> #### 🧑‍🎓 Explicação
+> Dentro de `onRouteMatched`, a primeira linha define o contexto de vinculação de dados para os valores preenchidos abaixo: o *modelo* é o WsensorModel" que contém os dados do sensor e o *path* dentro do modelo do qual os dados são usados ​​é "/sensors/" mais o índice do sensor clicado, que é recuperado do evento de roteamento. O path resultante (como, por exemplo, `/sensors/8`) se refere aos dados de um sensor específico na estrutura de dados JSON.
 >
-> When data properties like "temperature" are used in this view's data binding, they automatically refer to the temperature of the sensor with the current index 8.
+> Quando propriedades de dados como "temperatura" são usadas na vinculação de dados desta view, elas se referem automaticamente à temperatura do sensor com o índice atual 8.
 
-3. Switch to the browser tab where the application preview is opened. Click any sensor. Now the sensor status page contains a card with the customer name.
+3. Mude para a guia do navegador onde a view do aplicativo é aberta. Clique em qualquer sensor. Agora, a página de status do sensor contém um cartão com o nome do cliente.
 
-![](images/09_02_0010.png)
+![](images/BTP_09_0010.png)
 
-## Exercise 9.3 - Add a NumericHeader to the Card
+## Exercício 9.3 - Adicione um NumericHeader ao Card
 
-To further enhance the visualization, you will swap the `sap.f.cards.Header` with the `sap.f.cards.NumericHeader` in your newly created card.
+Para melhorar ainda mais a visualização, você trocará o `sap.f.cards.Header` pelo `sap.f.cards.NumericHeader` no seu card recém-criado.
 
-1. Open `sensormanager/webapp/view/SensorStatus.view.xml` and exchange the existing `<f:header>` content with the following:
+1. Abra `sensormanager/webapp/view/SensorStatus.view.xml` e troque o conteúdo `<f:header>` existente pelo seguinte:
 
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 
@@ -113,12 +113,12 @@ To further enhance the visualization, you will swap the `sap.f.cards.Header` wit
                 </f:header>
 ```
 
-2. Switch to the browser tab where the application preview is open. Click on any sensor. Now, the sensor status page presents a card that includes temperature information (still without Fahrenheit conversion).
+2. Mude para a aba do navegador onde a pré-visualização do aplicativo está aberta. Clique em qualquer sensor. Agora, a página de status do sensor apresenta um cartão que inclui informações de temperatura (ainda sem conversão em Fahrenheit).
 
-![](images/09_03_0010.png)
+![](images/BTP_09_0020.png)
 
-3. Add a formatter to apply semantic coloring to the card header.
-The formatter utilizes both the threshold and the current temperature from the model. Based on these values, it returns the `sap.m.ValueColor`. Open `sensormanager/webapp/format/util.ts` and insert the formatter function given below. Don't forget to import the `sap.m.ValueColor` module, which offers excellent color support, using the *Quick Fix*.
+3. Adicione um formatador para aplicar coloração semântica ao cabeçalho do cartão.
+O formatador utiliza tanto o limite quanto a temperatura atual do modelo. Com base nesses valores, ele retorna o `sap.m.ValueColor`. Abra `sensormanager/webapp/format/util.ts` e insira a função do formatador fornecida abaixo. Não se esqueça de importar o módulo `sap.m.ValueColor`, que oferece excelente suporte a cores, usando o *Quick Fix*.
 
 ###### sensormanager/webapp/format/util.ts
 
@@ -134,9 +134,9 @@ export function formatValueColor(temperature: number): ValueColor {
 }
 ```
 
-4. The `sap.f.cards.NumericHeader` control features a `state` property, which enables you to present the state of your control in a visually engaging manner. Proceed to open `sensormanager/webapp/view/SensorStatus.view.xml`.
+4. O controle `sap.f.cards.NumericHeader` apresenta uma propriedade `state`, que permite que você apresente o estado do seu controle de uma maneira visualmente envolvente. Prossiga para abrir `sensormanager/webapp/view/SensorStatus.view.xml`.
 
-5. First add the dependency to retrieve the required `util`, including the "core" namespace needed for the "require" itself.
+5. Primeiro adicione a dependência para recuperar o `util` necessário, incluindo o namespace "core" necessário para o próprio "require".
 
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 
@@ -153,7 +153,7 @@ export function formatValueColor(temperature: number): ValueColor {
     }">
 ```
 
-6. Add the `state` property to your numeric header and enter data binding information pointing to your newly created formatter function. As you have access to the `util` module, you also use it for the number formatting and Fahrenheit conversion.
+6. Adicione a propriedade `state` ao seu cabeçalho numérico e insira informações de vinculação de dados apontando para sua função formatadora recém-criada. Como você tem acesso ao módulo `util`, você também o usa para a formatação de números e conversão Fahrenheit.
 
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 
@@ -165,17 +165,17 @@ export function formatValueColor(temperature: number): ValueColor {
                 </f:header>
 ```
 
-7. Switch to the browser tab where the application preview is opened. Select any sensor. The sensor status page should now display a card with color-coded temperature details that vary based on the temperature value.
+7. Mude para a aba do navegador onde a pré-visualização do aplicativo é aberta. Selecione qualquer sensor. A página de status do sensor agora deve exibir um cartão com detalhes de temperatura codificados por cores que variam com base no valor da temperatura.
+   
+![](images/BTP_09_0030.png)
 
-![](images/09_03_0020.png)
+## Exercício 9.4 - Adicionar um gráfico ao cartão
 
-## Exercise 9.4 - Add a Chart to the Card
+Para mostrar alguns dados históricos, você pode usar o `temperatureLog` dos dados do sensor. Você usará um `sap.suite.ui.microchart.LineMicroChart` para adicionar os pontos de dados.
 
-To show some historical data you can use the `temperatureLog` of the sensor data. You'll use an `sap.suite.ui.microchart.LineMicroChart`to add the data points.
+1. Abra `sensormanager/webapp/view/SensorStatus.view.xml`.
 
-1. Open `sensormanager/webapp/view/SensorStatus.view.xml`.
-
-2. Add the namespace for the `sap.suite.ui.microchart` library to the `SensorStatus.view.xml`.
+2. Adicione o namespace para a biblioteca `sap.suite.ui.microchart` ao `SensorStatus.view.xml`.
 
 ###### SensorStatus/webapp/view/SensorStatus.view.xml
 
@@ -194,7 +194,7 @@ To show some historical data you can use the `temperatureLog` of the sensor data
     xmlns:mc="sap.suite.ui.microchart">
 ```
 
-3. Add the chart to the content aggregation of the card and bind the `temperatureLog` to the `points` aggregation. For each point you'll display the `temperature` property.
+3. Adicione o gráfico à agregação de conteúdo do cartão e vincule o `temperatureLog` à agregação `points`. Para cada ponto, você exibirá a propriedade `temperature`.
 
 ###### SensorStatus/webapp/view/SensorStatus.view.xml
 
@@ -212,17 +212,17 @@ To show some historical data you can use the `temperatureLog` of the sensor data
                 </f:content>
 ```
 
-> 🧑‍🎓 In the JSON data, the `temperatureLog` in each sensor is an extensive array containing historical temperature data and the corresponding timestamp. By binding the `points` to this array, each `temperatureLog` entry will serve as one point in the chart. X and Y values are mapped in the `LineMicroChartEmphasizedPoint` settings.
+> 🧑‍🎓 Nos dados JSON, o `temperatureLog` em cada sensor é uma matriz extensa contendo dados históricos de temperatura e o carimbo de data/hora correspondente. Ao vincular os `points` a essa matriz, cada entrada `temperatureLog` servirá como um ponto no gráfico. Os valores X e Y são mapeados nas configurações `LineMicroChartEmphasizedPoint`.
 
-4. Switch to the browser tab where the application preview is opened. Click any sensor. Now the sensor status page contains a chart with a temperature history.
+4. Mude para a guia do navegador onde a view do aplicativo é aberta. Clique em qualquer sensor. Agora, a página de status do sensor contém um gráfico com um histórico de temperatura.
 
-![](images/09_04_0010.png)
+![](images/BTP_09_0040.png)
 
-## Exercise 9.5 - Add Additional Information
+## Exercício 9.5 - Adicionar informações adicionais
 
-1. Open `sensormanager/webapp/view/SensorStatus.view.xml`.
+1. Abra `sensormanager/webapp/view/SensorStatus.view.xml`.
 
-2. To enhance the readability of the chart, you should provide some additional information. Add labels to the chart along with an indicator for the threshold. As done in previous exercises, also provide some semantic coloring and show only the relevant data points with the help of expression binding.
+2. Para melhorar a legibilidade do gráfico, você deve fornecer algumas informações adicionais. Adicione rótulos ao gráfico junto com um indicador para o limite. Como feito em exercícios anteriores, também forneça alguma coloração semântica e mostre apenas os pontos de dados relevantes com a ajuda da vinculação de expressão.
 
 ###### SensorStatus/webapp/view/SensorStatus.view.xml
 
@@ -246,22 +246,21 @@ To show some historical data you can use the `temperatureLog` of the sensor data
                     </mc:LineMicroChart>
                 </f:content>
 ```
-3. Switch to the browser tab where the application preview is displayed. Select any sensor. The sensor status page should now exhibit a chart containing a temperature history with colored data points, additional labels and a threshold line.
+3.Mude para a aba do navegador onde a pré-visualização do aplicativo é exibida. Selecione qualquer sensor. A página de status do sensor agora deve exibir um gráfico contendo um histórico de temperatura com pontos de dados coloridos, rótulos adicionais e uma linha de limite.
 
-![](images/09_05_0010.png)
+![](images/BTP_09_0050.png)
 
-## Summary
+## Resumo
 
-Congratulations! You've successfully enriched your sensor status page with a detailed card showing sensor information. This card, created using `sap.f.Card` and `sap.f.cards.NumericHeader`, displays valuable sensor data such as temperature, customer details, and a history chart of temperature data. You've also learned how to use microcharts with additional features like emphasized points, threshold lines and semantic coloring for better data visualization.
+Parabéns! Você enriqueceu com sucesso sua página de status do sensor com um cartão detalhado mostrando informações do sensor. Este cartão, criado usando `sap.f.Card` e `sap.f.cards.NumericHeader`, exibe dados valiosos do sensor, como temperatura, detalhes do cliente e um gráfico histórico de dados de temperatura. Você também aprendeu a usar micrográficos com recursos adicionais, como pontos enfatizados, linhas de limite e coloração semântica para melhor visualização de dados.
 
-You have done it all, this was the last step of the tutorial. Keep up the good work and stay curious about SAPUI5 as there is still a lot to learn! Find more information and tutorials about SAPUI5 below.
+Você fez tudo, esta foi a última etapa do tutorial. Continue com o bom trabalho e continue curioso sobre o SAPUI5, pois ainda há muito a aprender! Encontre mais informações e tutoriais sobre o SAPUI5 abaixo.
 
-## Further Information
+## Mais informações
 * Cards: https://ui5.sap.com/#/topic/5b46b03f024542ba802d99d67bc1a3f4
 * `sap.f.Card`: https://ui5.sap.com/#/api/sap.f.Card
 * `sap.f.cards.NumericHeader`: https://ui5.sap.com/#/api/sap.f.cards.NumericHeader
-* Methods and Events for Navigation
-: https://ui5.sap.com/#/topic/516e477e7e0b4e188b19a406e7528c1e
+* Métodos e Eventos para Navegação: https://ui5.sap.com/#/topic/516e477e7e0b4e188b19a406e7528c1e
 * UI5 Microcharts: https://ui5.sap.com/#/topic/9cbe3f06465e47b8a136956034a718ed
 * Formatting, Parsing, and Validating Data: https://ui5.sap.com/#/topic/07e4b920f5734fd78fdaa236f26236d8
 * UI5 Tutorials: https://sapui5.hana.ondemand.com/#/topic/8b49fc198bf04b2d9800fc37fecbb218

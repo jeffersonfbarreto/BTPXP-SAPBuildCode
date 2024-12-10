@@ -53,63 +53,61 @@ Agora você pode fazer login no seu ambiente Cloud Foundry diretamente do SAP Bu
 1. Abra o SAP Business Application Studio. Clique no botão mais alto na barra lateral esquerda (três linhas horizontais), depois em *Exibir* e selecione *Paleta de comandos...*. (Alternativamente, pressione `CTRL + Shift + P` no Windows/Linux, `Cmd + Shift + P` no Mac.) Em seguida, comece a digitar *CF: Login to cloud foundry* até que você possa ver e clicar na respectiva entrada.
 Agora especifique suas credenciais de usuário e faça login.
 
-![](images/11_03_0005.png)
+![](images/BTP_10_0040.png)
 
-## Exercise 10.4 - Set Organization and Space
+## Exercício 10.4 - Definir organização e espaço
 
-After logging in you're asked to specify your desired Cloud Foundry organization and space. Select the *ui5-apps* space you created above and press "Apply":
-
+Após efetuar login, você será solicitado a especificar a organização e o Space desejados do Cloud Foundry. Selecione o espaço *ui5-apps* que você criou acima e pressione "Aplicar":
 
 ![](images/11_04_0010.png)
 
-## Exercise 10.5 - Build Your Application
+## Exercício 10.5 - Crie seu aplicativo
 
-Now it's time to build your application. Yeah!
+Agora é hora de criar seu aplicativo. Sim!
 
-1. Right-click the `mta.yaml` file in the root folder.
+1. Clique com o botão direito no arquivo `mta.yaml` na pasta raiz.
 
-2. Select *Build MTA Project*. The build starts.
-
+2. Selecione *Build MTA Project*. A criação é iniciada.
 
 ![](images/11_06_0010.png)
 
-3. Once the build has finished the terminal will display messages that the MTA archive has been generated and temporary files are cleaned up:
+3. Quando a compilação for concluída, o terminal exibirá mensagens de que o arquivo MTA foi gerado e os arquivos temporários foram limpos:
 
 
 ![](images/11_06_0020.png)
 
 
-## Exercise 10.6 - Deploy Your Application
+## Exercício 10.6 - Implante seu aplicativo
 
-The build step has created a file named `keepcool-sensormanager_0.0.1.mtar` located under `mta_archives`. This file contains your build.
+A etapa de construção criou um arquivo chamado `keepcool-sensormanager_0.0.1.mtar` localizado em `mta_archives`. Este arquivo contém sua construção.
 
-1. Right-click `sensormanager/mta_archives/keepcool-sensormanager_0.0.1.mtar` and select *Deploy MTA Archive*. Deployment starts.
+1. Clique com o botão direito do mouse em `sensormanager/mta_archives/keepcool-sensormanager_0.0.1.mtar` e selecione *Implantar arquivo MTA*. A implantação é iniciada.
 
 ![](images/11_07_0010.png)
 
-2. Deployment takes some time. Once it is complete, you'll be notified in the terminal.
+2. A implantação leva algum tempo. Quando estiver concluída, você será notificado no terminal.
 
 ![](images/11_07_0020.png)
 
-## Exercise 10.7 - Run Your Application on SAP BTP
+## Exercício 10.7 - Execute seu aplicativo no SAP BTP
 
-1. The deployed application can be started from the SAP BTP Cockpit. Go to your trial subaccount and click on the *HTML5 Applications* section at the left hand side. The application is listed there as 'keepcoolsensormanager'. Click on it to start it.
+1. O aplicativo implantado pode ser iniciado a partir do SAP BTP Cockpit. Vá para sua trial subaccount e clique na seção *HTML5 Applications* no lado esquerdo. O aplicativo está listado lá como 'keepcoolsensormanager'. Clique nele para iniciá-lo.
 
-> NOTE: the application is NOT listed among *Applications* in the "ui5-apps" space, but among *HTML5 Applications* in the containing "trial" subaccount!
+> OBSERVAÇÃO: o aplicativo NÃO está listado entre *Applications* no espaço "ui5-apps", mas entre *HTML5 Applications* na subconta "trial" que o contém!
 
 
 ![](images/11_08_0010.png)
 
-2. Congratulations! You've deployed your UI5 application to the SAP BTP, Cloud Foundry runtime.
+2. Parabéns! Você implantou seu aplicativo UI5 no SAP BTP, Cloud Foundry runtime.
 
 ![](images/11_08_0020.png)
 
-## Summary
-Great job! You've learned how to deploy your UI5 application from SAP Business Application Studio to the SAP BTP, Cloud Foundry runtime. From creating a space in Cloud Foundry, subscribing to the SAP Build Work Zone Service, logging into Cloud Foundry, setting up your organization and space, configuring your application, building and finally deploying your application - you've done it all!
+## Resumo
+Ótimo trabalho! Você aprendeu a implementar seu aplicativo UI5 do SAP Business Application Studio para o SAP BTP, tempo de execução do Cloud Foundry. Desde a criação de um espaço no Cloud Foundry, assinatura do SAP Build Work Zone Service, login no Cloud Foundry, configuração da sua organização e espaço, configuração do seu aplicativo, criação e, finalmente, implementação do seu aplicativo - você fez tudo!
 
-Keep up the good work and stay curious about SAPUI5 as there is still a lot to learn! Find more information and tutorials about SAPUI5 and BTP below.
+Continue com o bom trabalho e continue curioso sobre o SAPUI5, pois ainda há muito a aprender! Encontre mais informações e tutoriais sobre o SAPUI5 e o BTP abaixo.
 
-## Further Information
+## Mais informações
 
 * UI5 Tutorials: https://sapui5.hana.ondemand.com/#/topic/8b49fc198bf04b2d9800fc37fecbb218
 * SAP Tutorials: https://developers.sap.com/tutorial-navigator.html

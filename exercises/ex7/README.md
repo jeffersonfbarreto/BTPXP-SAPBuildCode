@@ -1,5 +1,4 @@
-[![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex7)
-[![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex7/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
+
 # Exercício 7 - Utilizando Fragmentos e Diálogos
 
 Para uma rápida visão geral de todos os clientes atuais, vamos oferecer um diálogo. Para manter a separação de preocupações, vamos encapsular o conteúdo deste diálogo dentro de um Fragmento. Isso permite potencial reutilização em outro lugar.

@@ -1,21 +1,21 @@
 [![solution](https://flat.badgen.net/badge/solution/available/green?icon=github)](https://github.com/SAP-samples/teched2023-AD265/tree/code/exercises/ex8)
 [![demo](https://flat.badgen.net/badge/demo/deployed/blue?icon=github)](https://sap-samples.github.io/teched2023-AD283v/ex8/test/flpSandbox-cdn.html?sap-ui-xx-viewCache=false#keepcoolsensormanager-display)
 
-# Exercise 8 - Add a Second View with Navigation
+# Exercício 8 - Adicione uma segunda view com navegação
 
-Your customer does not only want to have a broad overview of all their icehouses. In case of problems they'd like to inspect a specific sensor for recent temperature data. You'll add a second view to display history data.
+Seu cliente não quer apenas ter uma visão geral de todos os seus depósitos de gelo. Em caso de problemas, ele gostaria de inspecionar um sensor específico para dados de temperatura recentes. Você adicionará uma segunda visualização para exibir dados históricos.
 
-## Exercise 8.1 - Create SensorStatus.view.xml
+## Exercício 8.1 - Crie SensorStatus.view.xml
 
-Create a new view as follows:
+Crie uma nova view da seguinte forma:
 
-1. Go to folder `sensormanager/webapp/view/`.
+1. Vá para a pasta `sensormanager/webapp/view/`.
 
-2. Right-click on the `view` folder and select `New File`.
+2. Clique com o botão direito do mouse na pasta `view` e selecione `New File`.
 
-3. Enter `SensorStatus.view.xml` as file name.
+3. Insira `SensorStatus.view.xml` como nome do arquivo.
 
-4. Add an empty `sap.m.Page` to the newly created view.
+4. Adicione um `sap.m.Page` vazio à visualização recém-criada.
 
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 
@@ -32,15 +32,15 @@ Create a new view as follows:
 </mvc:View>
 ```
 
-## Exercise 8.2 - Configure Routing in the `manifest.json` File
+## Exercício 8.2 - Configurar Routing no arquivo `manifest.json`
 
-After creating the new view, you'll next add routing information for it to the `manifest.json` file. Routing takes care of displaying the desired UI5 view based on the given browser URL hash. This makes routing the standard means to navigate between different views/pages.
+Após criar a nova view, você adicionará informações de Routing para ela no arquivo `manifest.json`. O Routing cuida da exibição da visualização UI5 desejada com base no hash de URL do navegador fornecido. Isso torna o roteamento o meio padrão para navegar entre diferentes views/páginas.
 
-1. Open `sensormanager/webapp/manifest.json`.
+1. Abra `sensormanager/webapp/manifest.json`.
 
-2. Go to section `sap.ui5` / `routing` / `routes`.
+2. Vá para a seção `sap.ui5` / `routing` / `routes`.
 
-3. Add a second route named "RouteSensorStatus" to the `routes` configuration. As result, `routes` should look like this:
+3. Adicione uma segunda rota chamada "RouteSensorStatus" à configuração `routes`. Como resultado, `routes` deve ficar assim:
 
 ###### sensormanager/webapp/manifest.json
 
@@ -60,11 +60,11 @@ After creating the new view, you'll next add routing information for it to the `
                 ],
 ```
 
->🧑‍🎓 A route is a way to address a specific part or state of an application with a specific URL hash pattern. The default route with empty pattern (or optional query as in this case) is what is displayed by default, the new route has the pattern `sensor/{index}`, so a URL hash starting with "sensor/" will trigger navigation to the target of this new route (target will be defined below). The path segment `{index}` in curly braces is variable and used to transport a value to the target, in this case *which* sensor should be displayed in detail.
+>🧑‍🎓 Uma rota é uma maneira de abordar uma parte ou estado específico de um aplicativo com um padrão de hash de URL específico. A rota padrão com padrão vazio (ou consulta opcional como neste caso) é o que é exibido por padrão, a nova rota tem o padrão `sensor/{index}`, então um hash de URL começando com "sensor/" acionará a navegação para o destino desta nova rota (o destino será definido abaixo). O segmento de caminho `{index}` entre chaves é variável e usado para transportar um valor para o destino, neste caso *qual* sensor deve ser exibido em detalhes.
 
-4. Go one section down to `sap.ui5` / `routing` / `targets`.
+4. Vá uma seção abaixo para `sap.ui5` / `routing` / `targets`.
 
-5. Add a new entry to the `targets` configuration. This is the target of the newly added route and defines `SensorStatus` as the name of the view to display. It also defines the *viewLevel*, which helps routing to understand the navigation direction and displaying the correct transition animation. Add the corresponding *viewLevel* to the `TargetSensors`. In total, the `targets` section now needs to look like this:
+5. Adicione uma nova entrada à configuração `targets`. Este é o destino da rota recém-adicionada e define `SensorStatus` como o nome da exibição a ser exibida. Ele também define o *viewLevel*, que ajuda o roteamento a entender a direção da navegação e exibir a animação de transição correta. Adicione o *viewLevel* correspondente ao `TargetSensors`. No total, a seção `targets` agora precisa ficar assim:
 
 ###### sensormanager/webapp/manifest.json
 
@@ -86,29 +86,29 @@ After creating the new view, you'll next add routing information for it to the `
             }
 ```
 
-> 🧑‍🎓 A target defines a view that is displayed, it can be referenced by one or more routes. Whenever a target is displayed, the corresponding view is loaded and shown in the app. The two targets point to the two content views which are now present in the application.
+> 🧑‍🎓 Um target define uma viewo que é exibida, ele pode ser referenciado por uma ou mais rotas. Sempre que um alvo é exibido, a view correspondente é carregada e mostrada no aplicativo. Os dois target apontam para as duas views de conteúdo que agora estão presentes no aplicativo.
 >
-> The third view, `App.view.xml` is the root view. The routing mechanism controls the content of the `App` control inside it - which of the views should be displayed insid the `App`. This configuration happens in the `"config"` block a bit further up at the beginning of the `"routing"` section: this part contains the global router configuration and default values that apply for all routes and targets. It defines the router class that you want to use and where the views are located in the app.
-> In paticular the following two lines define *which* UI control should be managed by the router (the `App` with the ID "app") and which of its aggregations should be used to automatically display the views ("pages"):
+> A terceira view, `App.view.xml` é a view raiz. O mecanismo de roteamento(routing) controla o conteúdo do controle `App` dentro dela - qual das views deve ser exibida dentro do `App`. Essa configuração acontece no bloco `"config"` um pouco mais acima no início da seção `"routing"`: esta parte contém a configuração global do roteador e os valores padrão que se aplicam a todas as routes e targets. Ela define a classe do roteador que você deseja usar e onde as views estão localizadas no aplicativo.
+> Em particular, as duas linhas a seguir definem *qual* controle de IU deve ser gerenciado pelo roteador (o `App` com o ID "app") e qual de suas agregações deve ser usada para exibir automaticamente as views ("páginas"):
 >
 >                "controlAggregation": "pages",
 >                "controlId": "app",
 
-6. Let's see if the newly created view can be opened. Switch to the browser tab with the opened application preview. Add `&/sensor/7` at the end of the URL in the browser's address bar and the newly created page is displayed.
+6. Vamos ver se a view recém-criada pode ser aberta. Mude para a aba do navegador com a view principal do aplicativo. Adicione `&/sensor/7` no final da URL na barra de endereços do navegador e a página recém-criada será exibida.
 
-> 🧑‍🎓 The preview URL already contains a URL hash (`#keepcoolsensormanager-display`), so this routing hash part is appended with an ampersand (`&`).
+> 🧑‍🎓 A URL de view já contém um hash de URL (`#keepcoolsensormanager-display`), então essa parte do hash de roteamento é anexada com um e comercial (`&`).
 
 
-![](images/08_02_0010.png)
+![](images/BTP_08_0010.png)
 
-## Exercise 8.3 - Implement the Navigation to the New View
+## Exercício 8.3 - Implementar a navegação para a nova view
 
-Fine. You can access the newly created view. Next, you need to implement logic to navigate from your first view to the newly created one.
+Tudo bem. Você pode acessar a view recém-criada. Em seguida, você precisa implementar a lógica para navegar da sua primeira view para a recém-criada.
 
-1. Open `sensormanager/webapp/controller/Sensors.controller.ts`.
+1. Abra `sensormanager/webapp/controller/Sensors.controller.ts`.
 
-2. Create the function `navToSensorStatus`. Here, you get the index of the currently selected sensor and navigate to the new view by passing the index. Again add all missing imports using the Quick Fix.
-
+2. Crie a função `navToSensorStatus`. Aqui, você obtém o índice do sensor selecionado no momento e navega para a nova view passando o índice. Novamente, adicione todas as importações ausentes usando o Quick Fix.
+   
 ###### sensormanager/webapp/controller/Sensors.controller.ts
 
 ```js
@@ -118,35 +118,34 @@ Fine. You can access the newly created view. Next, you need to implement logic t
     }
 ```
 
-> 🧑‍🎓 "RouteSensorStatus" is the route name you just added in `manifest.json`. This call triggers the route and UI5 displays the view belonging to the route's target. `index` was the variable part of the URL hash and is assigned a value - the number of the clicked sensor - here. When running the application, you will see the actual number at the end of the URL.
+> 🧑‍🎓 "RouteSensorStatus" é o nome da rota que você acabou de adicionar em `manifest.json`. Esta chamada aciona a rota e a UI5 exibe a view pertencente ao destino da rota. `index` era a parte variável do hash da URL e recebe um valor - o número do sensor clicado - aqui. Ao executar o aplicativo, você verá o número real no final da URL.
 
+## Exercício 8.4 - Atribuir a lógica de navegação aos itens do sensor
 
-## Exercise 8.4 - Assign the Navigation Logic to the Sensor Items
+Após implementar a lógica de navegação, você precisará atribuí-la a um controle, para que ela possa ser acionada pelo usuário.
 
-After implementing the navigation logic you'll need to assign it to a control, so it can be triggered by the user.
+1. Abra `sensormanager/webapp/view/Sensors.view.xml`.
 
-1. Open `sensormanager/webapp/view/Sensors.view.xml`.
-
-2. Add the `press` event to the `GridListItem` control and assign the newly created function.
-
+2. Adicione o evento `press` ao controle `GridListItem` e atribua a função recém-criada.
+   
 ###### sensormanager/webapp/view/Sensors.view.xml
 
 ```xml
                             <f:GridListItem type="Active" press=".navToSensorStatus">
 ```
 
-3. Let's see if the navigation logic works. Switch to the browser tab with the opened application preview. Remove the "&/sensor/7" part you just added for testing and press *Enter* to get to the main overview page again. Or simply re-launch the preview page from BAS. Then click any sensor. The navigation takes place, and you see the newly created empty view.
+3. Vamos ver se a lógica de navegação funciona. Mude para a aba do navegador com a pré-visualização do aplicativo aberta. Remova a parte "&/sensor/7" que você acabou de adicionar para teste e pressione *Enter* para ir para a página de visão geral principal novamente. Ou simplesmente reinicie a página de pré-visualização do BAS. Então clique em qualquer sensor. A navegação acontece, e você vê a view vazia recém-criada.
 
-![](images/08_04_0010.png)
+![](images/BTP_08_0020.png)
 
-## Exercise 8.5 - Create SensorStatus.controller.ts and Implement the Back-Navigation
-Nice. Now let's implement the navigation back to `Sensors.view.xml`. To do this, you'll need a new controller for the newly created view.
+## Exercício 8.5 - Crie SensorStatus.controller.ts e implemente a navegação de volta
+Legal. Agora vamos implementar a navegação de volta para `Sensors.view.xml`. Para fazer isso, você precisará de um novo controlador para a view recém-criada.
 
-1. In folder `sensormanager/webapp/controller/`, right-click on the `controller` folder and select `New File`.
+1. Na pasta `sensormanager/webapp/controller/`, clique com o botão direito do mouse na pasta `controller` e selecione `New File`.
 
-2. Enter `SensorStatus.controller.ts` as file name.
+2. Insira `SensorStatus.controller.ts` como nome do arquivo.
 
-3. Copy and paste the controller definition given below into the newly created `SensorStatus.controller.ts`. The `navToSensors` method uses the router's `navTo` method for triggering the `RouteSensors` route, pointing to the initial `Sensors.view.xml` view.
+3. Copie e cole a definição do controlador fornecida abaixo no `SensorStatus.controller.ts`. O método `navToSensors` usa o método `navTo` do roteador para acionar a rota `RouteSensors`, apontando para a visualização `Sensors.view.xml` inicial.
 
 ###### sensormanager/webapp/controller/SensorStatus.controller.ts
 
@@ -172,12 +171,12 @@ export default class SensorStatus extends Controller {
 ```
 
 
-## Exercise 8.6 - Trigger the Back-Navigation from the SensorStatus View
+## Exercício 8.6 - Acione a navegação de volta da view SensorStatus
 
-1. Open `sensormanager/webapp/view/SensorStatus.view.xml`.
+1. Abra `sensormanager/webapp/view/SensorStatus.view.xml`.
 
-2. Add the `controllerName` attribute in `sensormanager/webapp/view/Sensors.view.xml` to assign the new controller to the view. Also, add the `navButtonPress` attribute to the `sap.m.Page` control and assign the newly created `navToSensors` function as handler to this event.
-
+2. Adicione o atributo `controllerName` em `sensormanager/webapp/view/Sensors.view.xml` para atribuir o novo controlador à view. Além disso, adicione o atributo `navButtonPress` ao controle `sap.m.Page` e atribua a função `navToSensors` recém-criada como manipulador para este evento.
+   
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 
 ```xml
@@ -195,22 +194,22 @@ export default class SensorStatus extends Controller {
 </mvc:View>
 ```
 
-3. Let's see if the navigation logic works. Switch to the browser tab with the opened application preview. In the URL, remove any previously added URL hash and reload the page.
+3. Vamos ver se a lógica de navegação funciona. Mude para a aba do navegador com a pré-visualização do aplicativo aberta. Na URL, remova qualquer hash de URL adicionado anteriormente e recarregue a página.
 
-![](images/08_06_0010.png)
+![](images/BTP_08_0030.png)
 
-4. Click any sensor. The navigation takes place, and you see the newly created view.
+4. Clique em qualquer sensor. A navegação acontece, e você vê a visualização recém-criada.
 
-![](images/08_06_0020.png)
+![](images/BTP_08_0040.png)
 
-5. Click the "<" button to navigate back to the sensor list. Thanks to how the Router works, you can also use the "Back" button of the browser or your mobile device instead.
+5. Clique no botão "<" para navegar de volta para a lista de sensores. Graças ao funcionamento do Router, você também pode usar o botão "Voltar" do navegador ou do seu dispositivo móvel.
 
-![](images/08_06_0010.png)
+![](images/BTP_08_0050.png)
 
-## Summary
+## Resumo
 
-Great job on completing Exercise 8! You've successfully added a second view to your application and implemented navigation between views using the routing functionality of SAPUI5. You've made significant progress in enhancing your application's utility and user experience. Keep up the good work and carry on to [Exercise 9 - Card with NumericHeader](../ex9/README.md).
+Ótimo trabalho ao concluir o Exercício 8! Você adicionou com sucesso uma segunda view ao seu aplicativo e implementou a navegação entre views usando a funcionalidade de roteamento do SAPUI5. Você fez um progresso significativo na melhoria da utilidade e da experiência do usuário do seu aplicativo. Continue com o bom trabalho e continue para [Exercício 9 - Cartão com NumericHeader](../ex9/README.md).
 
-## Further Information
+## Mais informações
 
-* Routing in UI5: https://ui5.sap.com/#/topic/902313063d6f45aeaa3388cc4c13c34e
+* Routing UI5: https://ui5.sap.com/#/topic/902313063d6f45aeaa3388cc4c13c34e

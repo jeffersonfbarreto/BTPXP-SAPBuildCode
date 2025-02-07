@@ -47,7 +47,7 @@ Depois de concluir essas etapas, você terá criado seu primeiro aplicativo UI5.
 <br>![](images/BTP_01_0070.png)<br><br>
 
 
-8. Na próxima etapa, selecione *Cloud Foundry* omo destino, deixe o nome do Destino como "None" e certifique-se de que a opção *Yes* esteja marcada para adicionar o aplicativo ao roteador do aplicativo e clique em *Finish*.  </ul>
+8. Na próxima etapa, selecione *Cloud Foundry* como destino, deixe o nome do Destino como "None" e certifique-se de que a opção *Yes* esteja marcada para adicionar o aplicativo ao roteador do aplicativo e clique em *Finish*.  </ul>
 
 <br><br>![](images/BTP_01_0080.png)<br><br>
 

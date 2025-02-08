@@ -173,7 +173,7 @@ export default class SensorStatus extends Controller {
 
 1. Abra `sensormanager/webapp/view/SensorStatus.view.xml`.
 
-2. Adicione o atributo `controllerName` em `sensormanager/webapp/view/Sensors.view.xml` para atribuir o novo controlador à view. Além disso, adicione o atributo `navButtonPress` ao controle `sap.m.Page` e atribua a função `navToSensors` recém-criada como manipulador para este evento.
+2. Adicione o atributo `controllerName` para atribuir o novo controlador à view. Além disso, adicione o atributo `navButtonPress` ao controle `sap.m.Page` e atribua a função `navToSensors` recém-criada como manipulador para este evento.
    
 ###### sensormanager/webapp/view/SensorStatus.view.xml
 

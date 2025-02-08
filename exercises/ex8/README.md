@@ -84,7 +84,7 @@ Após criar a nova view, você adicionará informações de Routing para ela no 
             }
 ```
 
-> 🧑‍🎓 Um target define uma viewo que é exibida, ele pode ser referenciado por uma ou mais rotas. Sempre que um alvo é exibido, a view correspondente é carregada e mostrada no aplicativo. Os dois target apontam para as duas views de conteúdo que agora estão presentes no aplicativo.
+> 🧑‍🎓 Um target define uma view que é exibida, ele pode ser referenciado por uma ou mais rotas. Sempre que um alvo é exibido, a view correspondente é carregada e mostrada no aplicativo. Os dois target apontam para as duas views de conteúdo que agora estão presentes no aplicativo.
 >
 > A terceira view, `App.view.xml` é a view raiz. O mecanismo de roteamento(routing) controla o conteúdo do controle `App` dentro dela - qual das views deve ser exibida dentro do `App`. Essa configuração acontece no bloco `"config"` um pouco mais acima no início da seção `"routing"`: esta parte contém a configuração global do roteador e os valores padrão que se aplicam a todas as routes e targets. Ela define a classe do roteador que você deseja usar e onde as views estão localizadas no aplicativo.
 > Em particular, as duas linhas a seguir definem *qual* controle de IU deve ser gerenciado pelo roteador (o `App` com o ID "app") e qual de suas agregações deve ser usada para exibir automaticamente as views ("páginas"):

@@ -25,7 +25,7 @@ toolTipShowCustomers=Show Customers
 titleCustomerDialog=Customers
 titleSensorStatus=Sensor Status
 cardTitle=Customer
-temperatureUnit=°C
+temperatureUnit=°F
 ```
 
 >💡 Alguns dos textos serão usados ​​somente em exercícios futuros.
@@ -67,7 +67,7 @@ toolTipShowCustomers=Show Customers
 titleCustomerDialog=Customers
 titleSensorStatus=Sensor Status
 cardTitle=Customer
-temperatureUnit=°C
+temperatureUnit=°F
 ```
 
 >Por que inglês de novo? O arquivo original `i18n.properties` já era inglês! Normalmente, o idioma original é "inglês do desenvolvedor", servindo como entrada para traduções, incluindo revisão por um especialista em tradução para inglês para garantir uma boa linguagem. Em alguns casos, o idioma original pode nem ser inglês. Observe que alteramos a temperatura aqui para refletir Fahrenheit como medida comumente usada para temperaturas em alguns países de língua inglesa. Você pode escolher o que for melhor.

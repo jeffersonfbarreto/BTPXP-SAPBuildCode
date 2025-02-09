@@ -29,7 +29,7 @@ A segunda view, `sensormanager/webapp/view/Sensors.view.xml`, contém um único 
 
 ```
 
-> #### 🧑‍🎓 Explanation
+> #### 🧑‍🎓 Explicação
 > As views XML são a maneira recomendada (mas não a única) no SAPUI5 para definir a estrutura da interface do usuário. As tags com letras maiúsculas representam controles UI5 - elementos da interface do usuário fornecidos como parte do UI5 ou criados como controles personalizados no código do aplicativo. O UI5 vem com centenas desses controles, de botões simples a layouts animados complexos ou coisas como tabelas e gráficos.
 >
 > Controles de contêiner como `App` e `Page` têm a capacidade de incorporar controles filho aninhados, o que é bem refletido na estrutura XML. Às vezes, esses contêineres têm áreas diferentes ("agregações") para controles filho. Elas são representadas como tags todas em minúsculas como `<content>` e definem em qual área os elementos filho contidos devem ir.
